@@ -1,0 +1,23 @@
+<ion-header>
+  
+  <ion-navbar>
+    <ion-title>User Register</ion-title>
+  </ion-navbar>
+
+</ion-header>
+<ion-content padding>
+  <xapi-register #Register
+      (beforeRequest)="onBeforeRequest($event)"
+      (afterRequest)="onAfterRequest($event)"
+      (success)="onSuccess($event)"
+      (update)="onUpdate($event)"
+      (cancel)="onCancel($event)"
+      (error)="onError($event)"
+    ></xapi-register>
+    <div *ngIf="loading">
+      <ion-spinner></ion-spinner>
+    </div>
+    <div *ngIf="errorMessage">
+      {{ errorMessage }}
+    </div>
+</ion-content>

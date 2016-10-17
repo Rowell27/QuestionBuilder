@@ -1,0 +1,17 @@
+<ion-header>
+  
+  <ion-navbar hideBackButton>
+    <ion-title>User Login</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding>
+  <xapi-login #Login
+      (beforeRequest)="onBeforeRequest($event)"
+      (afterRequest)="onAfterRequest($event)"
+      (success)="onSuccess($event)"
+      (cancel)="onCancel($event)"
+      (error)="onError($event)"
+  ></xapi-login>
+</ion-content>

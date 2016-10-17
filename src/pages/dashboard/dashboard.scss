@@ -1,0 +1,23 @@
+page-dashboard {
+    ion-card {
+        position: relative;
+        text-align: center;
+        height: 80px;
+        cursor: pointer;
+    }
+    .cardTitle{
+        font-size: 1.0em;
+        position: absolute;
+        top: 35%;
+        width: 100%;
+        color:grey;
+    }
+    .btnCard{
+        width: 100%;
+    }
+    .logoutIco{
+        font-size: 1.5em;
+    }
+    
+
+}
