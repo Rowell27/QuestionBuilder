@@ -21146,6 +21146,10 @@ page-questionsform .addIcon {
   color: darkcyan;
 }
 
+page-questionsform .btnIcon {
+  background-color: transparent;
+}
+
 #photo {
   background-color: blue;
 }

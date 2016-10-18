@@ -1,6 +1,7 @@
 import { Component, ViewChild } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { List } from '../../components/list/list';
+import { CreateUpdateForm } from '../form/form';
 
 /*
   Generated class for the Questionsform page.
@@ -27,6 +28,7 @@ export class Questionsform {
   ionViewDidLoad() {
     console.log("PostListPage::ionViewDidLoad()", this.postListComponent.slug);
   }
-
-
+  addIco(){
+    this.navCtrl.push(CreateUpdateForm);   
+  }
 }

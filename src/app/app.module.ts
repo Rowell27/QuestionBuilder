@@ -10,6 +10,7 @@ import { Createupdate } from '../components/createupdate/createupdate';
 import { List } from '../components/list/list'
 import { Questionsform } from '../pages/questionsform/questionsform';
 import { CreateUpdateForm } from '../pages/form/form';
+import { Delete } from '../pages/delete/delete';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { CreateUpdateForm } from '../pages/form/form';
     Logout,
     List,
     CreateUpdateForm,
-    Createupdate
+    Createupdate,
+    Delete
   ],
   imports: [
     XModule,
@@ -37,8 +39,8 @@ import { CreateUpdateForm } from '../pages/form/form';
     Logout,
     List,
     CreateUpdateForm,
-    Createupdate
-    
+    Createupdate,
+    Delete   
   ],
   providers: [ ]
 })

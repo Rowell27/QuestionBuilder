@@ -84160,13 +84160,16 @@ var Questionsform = (function () {
     Questionsform.prototype.ionViewDidLoad = function () {
         console.log("PostListPage::ionViewDidLoad()", this.postListComponent.slug);
     };
+    Questionsform.prototype.addIco = function () {
+        this.navCtrl.push(CreateUpdateForm);
+    };
     __decorate$116([
         ViewChild('xapiPostList'), 
         __metadata$8('design:type', List$1)
     ], Questionsform.prototype, "postListComponent", void 0);
     Questionsform = __decorate$116([
         Component({
-            selector: 'page-questionsform',template:/*ion-inline-start:"F:\QuestionBuilder\src\pages\questionsform\questionsform.html"*/'<!--\n\n  Generated template for the Questionsform page.\n\n\n\n  See http://ionicframework.com/docs/v2/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n<ion-header>\n\n\n\n  <ion-navbar>\n\n    <logout></logout>\n\n  </ion-navbar>\n\n\n\n</ion-header>\n\n\n\n\n\n<ion-content padding>\n\n  <ion-buttons right>\n\n    <ion-icon name="add-circle" class="addIcon"></ion-icon>\n\n  </ion-buttons>\n\n  \n\n  <question-list\n\n    #xapiPostList\n\n    [slug]="slug"\n\n    (view)="onClickView( $event )"\n\n    (vote)="onClicVote( $event )"\n\n  ></question-list>\n\n\n\n</ion-content>\n\n'/*ion-inline-end:"F:\QuestionBuilder\src\pages\questionsform\questionsform.html"*/
+            selector: 'page-questionsform',template:/*ion-inline-start:"F:\QuestionBuilder\src\pages\questionsform\questionsform.html"*/'<!--\n\n  Generated template for the Questionsform page.\n\n\n\n  See http://ionicframework.com/docs/v2/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n<ion-header>\n\n\n\n  <ion-navbar>\n\n    <logout></logout>\n\n  </ion-navbar>\n\n\n\n</ion-header>\n\n\n\n\n\n<ion-content padding>\n\n  <ion-buttons right>\n\n      <button  (click)="addIco()" class="btnIcon">\n\n          <ion-icon name="add-circle" class="addIcon"></ion-icon>\n\n      </button>\n\n  </ion-buttons>\n\n  \n\n  <question-list\n\n    #xapiPostList\n\n    [slug]="slug"\n\n    (view)="onClickView( $event )"\n\n    (vote)="onClicVote( $event )"\n\n  ></question-list>\n\n\n\n</ion-content>\n\n'/*ion-inline-end:"F:\QuestionBuilder\src\pages\questionsform\questionsform.html"*/
         }), 
         __metadata$8('design:paramtypes', [NavController, NavParams])
     ], Questionsform);
@@ -84182,6 +84185,37 @@ var __decorate$119 = (undefined && undefined.__decorate) || function (decorators
 var __metadata$11 = (undefined && undefined.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+/*
+  Generated class for the Delete page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+*/
+var Delete = (function () {
+    function Delete(navCtrl) {
+        this.navCtrl = navCtrl;
+    }
+    Delete.prototype.ionViewDidLoad = function () {
+        console.log('Hello Delete Page');
+    };
+    Delete = __decorate$119([
+        Component({
+            selector: 'page-delete',template:/*ion-inline-start:"F:\QuestionBuilder\src\pages\delete\delete.html"*/'<!--\n  Generated template for the Delete page.\n\n  See http://ionicframework.com/docs/v2/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>delete</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n\n</ion-content>\n'/*ion-inline-end:"F:\QuestionBuilder\src\pages\delete\delete.html"*/
+        }), 
+        __metadata$11('design:paramtypes', [NavController])
+    ], Delete);
+    return Delete;
+}());
+
+var __decorate$120 = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata$12 = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
 var PageController = (function () {
     function PageController() {
     }
@@ -84189,9 +84223,9 @@ var PageController = (function () {
         container.navCtrl.push(PageController.page[page]);
     };
     PageController.page = {};
-    PageController = __decorate$119([
+    PageController = __decorate$120([
         Injectable(), 
-        __metadata$11('design:paramtypes', [])
+        __metadata$12('design:paramtypes', [])
     ], PageController);
     return PageController;
 }());
@@ -84206,9 +84240,10 @@ var __metadata$5 = (undefined && undefined.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var Dashboard = (function () {
-    function Dashboard(navCtrl, viewCtrl, events, x, navPar) {
+    function Dashboard(navCtrl, alertCtrl, viewCtrl, events, x, navPar) {
         var _this = this;
         this.navCtrl = navCtrl;
+        this.alertCtrl = alertCtrl;
         this.viewCtrl = viewCtrl;
         this.events = events;
         this.x = x;
@@ -84216,55 +84251,55 @@ var Dashboard = (function () {
         this.appTitle = "Hello World!";
         this.x.getLoginData(function (x) { return _this.login(x); });
         this.userLogged = this.navPar.get('thisstring');
-        this.events.subscribe('logout', function () {
-            console.log('HomePage::constructor::event logout');
-            _this.logout();
-        });
-        this.events.subscribe('resign', function () {
-            console.log('HomePage::constructor::event resign');
-            _this.logout();
-        });
-        this.events.subscribe('login', function (x) {
-            console.log('HomePage::constructor::event logout');
-            _this.login(x);
-        });
-        this.events.subscribe('register', function (x) {
-            console.log('HomePage::constructor::event register');
-            _this.login(x);
-        });
         PageController.page.login = LoginPage;
         PageController.page.register = RegisterPage;
     }
+    Dashboard.prototype.onClickChange = function () {
+        console.log('Change Password');
+        var prompt = this.alertCtrl.create({
+            title: 'Login',
+            message: "Enter a name for this new album you're so keen on adding",
+            inputs: [
+                {
+                    name: 'title',
+                    placeholder: 'Title'
+                },
+            ],
+            buttons: [
+                {
+                    text: 'Cancel',
+                    handler: function (data) {
+                        console.log('Cancel clicked');
+                    }
+                },
+                {
+                    text: 'Save',
+                    handler: function (data) {
+                        console.log('Saved clicked');
+                    }
+                }
+            ]
+        });
+        prompt.present();
+    };
     Dashboard.prototype.ionViewDidLoad = function () {
         console.log("HomePage::ionViewDidLoad()");
     };
+    Dashboard.prototype.onClickDelete = function () {
+        console.log('delete');
+        this.navCtrl.push(Delete);
+    };
     Dashboard.prototype.login = function (u) {
         this.user = u;
-    };
-    Dashboard.prototype.logout = function () {
-        this.user = '';
-        this.navCtrl.setRoot(LoginPage);
-    };
-    // onClickLogout() {
-    //       // this.x.logout();
-    //       this.x.alert("Log out", "Logging out");
-    //       this.logout();
-    // }
-    Dashboard.prototype.onClickUpdate = function () {
-        console.log(this.user.display_name);
-        //this.navCtrl.push( RegisterPage );
-    };
-    Dashboard.prototype.onClickChangePassword = function () {
-        //this.navCtrl.push( PasswordPage );
     };
     Dashboard.prototype.onClickAdd = function () {
         this.navCtrl.push(Questionsform);
     };
     Dashboard = __decorate$113([
         Component({
-            selector: 'page-dashboard',template:/*ion-inline-start:"F:\QuestionBuilder\src\pages\dashboard\dashboard.html"*/'<ion-header>\n\n  <ion-navbar hideBackButton>\n\n    \n\n    <logout>\n\n    </logout>\n\n  </ion-navbar>\n\n</ion-header>\n\n<ion-content padding>\n\n  <h2 *ngIf="user">Welcome {{ user.user_nicename }}</h2>\n\n  <section *ngIf="user">\n\n    <p class="container">\n\n      \n\n    </p>\n\n    <p class="container">\n\n      \n\n    </p>\n\n  </section>\n\n\n\n<ion-grid>\n\n  \n\n  <ion-list>\n\n    <ion-item>\n\n      <ion-label>Quiz Management</ion-label>\n\n    </ion-item>\n\n    \n\n    <ion-item>\n\n      <ion-row>\n\n        <ion-col width-45> \n\n          <ion-card class="btnCard" (click)="onClickAdd()">\n\n            <p class="cardTitle"><ion-icon name="document"></ion-icon>\n\n              Add/Edit Question\n\n            </p>\n\n          </ion-card>\n\n        </ion-col>\n\n\n\n        <ion-col width-45>\n\n          <ion-card class="btnCard" (click)="onClickDelete()">\n\n            <p class="cardTitle">\n\n              <ion-icon name="trash"></ion-icon>\n\n                Remove Question\n\n            </p>\n\n          </ion-card>\n\n        </ion-col>\n\n       </ion-row>\n\n    </ion-item>\n\n\n\n\n\n    <ion-item>\n\n      <ion-label>Account Settings</ion-label>\n\n    </ion-item>\n\n\n\n        \n\n    <ion-item>\n\n      <ion-row>\n\n        <ion-col width-45> \n\n          <ion-card class="btnCard" (click)="onClickAdd()">\n\n            <p class="cardTitle"><ion-icon name="lock"></ion-icon>\n\n              Change Password\n\n            </p>\n\n          </ion-card>\n\n        </ion-col>\n\n\n\n       </ion-row>\n\n    </ion-item>\n\n    \n\n  </ion-list>\n\n</ion-grid>\n\n</ion-content>\n\n'/*ion-inline-end:"F:\QuestionBuilder\src\pages\dashboard\dashboard.html"*/
+            selector: 'page-dashboard',template:/*ion-inline-start:"F:\QuestionBuilder\src\pages\dashboard\dashboard.html"*/'<ion-header>\n\n  <ion-navbar hideBackButton>\n\n    \n\n    <logout>\n\n    </logout>\n\n  </ion-navbar>\n\n</ion-header>\n\n<ion-content padding>\n\n  <h2 *ngIf="user">Welcome {{ user.user_nicename }}</h2>\n\n  <section *ngIf="user">\n\n    <p class="container">\n\n      \n\n    </p>\n\n    <p class="container">\n\n      \n\n    </p>\n\n  </section>\n\n\n\n<ion-grid>\n\n  \n\n  <ion-list>\n\n    <ion-item>\n\n      <ion-label>Quiz Management</ion-label>\n\n    </ion-item>\n\n    \n\n    <ion-item>\n\n      <ion-row>\n\n        <ion-col width-45> \n\n          <ion-card class="btnCard" (click)="onClickAdd()">\n\n            <p class="cardTitle"><ion-icon name="document"></ion-icon>\n\n              Add/Edit Question\n\n            </p>\n\n          </ion-card>\n\n        </ion-col>\n\n\n\n        <ion-col width-45>\n\n          <ion-card class="btnCard" (click)="onClickDelete()">\n\n            <p class="cardTitle">\n\n              <ion-icon name="trash"></ion-icon>\n\n                Remove Question\n\n            </p>\n\n          </ion-card>\n\n        </ion-col>\n\n       </ion-row>\n\n    </ion-item>\n\n\n\n\n\n    <ion-item>\n\n      <ion-label>Account Settings</ion-label>\n\n    </ion-item>\n\n\n\n        \n\n    <ion-item>\n\n      <ion-row>\n\n        <ion-col width-45> \n\n          <ion-card class="btnCard" (click)="onClickChange()">\n\n            <p class="cardTitle"><ion-icon name="lock"></ion-icon>\n\n              Change Password\n\n            </p>\n\n          </ion-card>\n\n        </ion-col>\n\n\n\n       </ion-row>\n\n    </ion-item>\n\n    \n\n  </ion-list>\n\n</ion-grid>\n\n</ion-content>\n\n'/*ion-inline-end:"F:\QuestionBuilder\src\pages\dashboard\dashboard.html"*/
         }), 
-        __metadata$5('design:paramtypes', [NavController, ViewController, Events, Xapi, NavParams])
+        __metadata$5('design:paramtypes', [NavController, AlertController, ViewController, Events, Xapi, NavParams])
     ], Dashboard);
     return Dashboard;
 }());
@@ -84357,13 +84392,13 @@ var MyApp = (function () {
     return MyApp;
 }());
 
-var __decorate$121 = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+var __decorate$122 = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
-var __metadata$13 = (undefined && undefined.__metadata) || function (k, v) {
+var __metadata$14 = (undefined && undefined.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var HeaderComponent = (function () {
@@ -84424,31 +84459,31 @@ var HeaderComponent = (function () {
     };
     HeaderComponent.prototype.onClickSearch = function () {
     };
-    __decorate$121([
+    __decorate$122([
         Input(), 
-        __metadata$13('design:type', String)
+        __metadata$14('design:type', String)
     ], HeaderComponent.prototype, "appTitle", void 0);
-    __decorate$121([
+    __decorate$122([
         Input(), 
-        __metadata$13('design:type', Boolean)
+        __metadata$14('design:type', Boolean)
     ], HeaderComponent.prototype, "hideCreateButton", void 0);
-    HeaderComponent = __decorate$121([
+    HeaderComponent = __decorate$122([
         Component({
             selector: 'xapi-header',
             template: "\n        <ion-navbar>\n            <!--\n            <ion-buttons left>\n                <button (click)=\"onClickHome()\">\n                    <ion-icon name=\"home\"></ion-icon>\n                </button>\n            </ion-buttons>\n            -->\n\n            <ion-title>\n                {{ appTitle }}\n                {{ subTitle }}\n            </ion-title>\n            \n            <ion-buttons right>\n                <button ion-button color=\"primary\" login *ngIf=\"loggedIn \" (click)=\"onClickLogout()\">Logout</button>\n                <button ion-button (click)=\"onClickPost( )\" *ngIf=\"!hideCreateButton\"><ion-icon name=\"create\"></ion-icon></button>\n                <button ion-button (click)=\"onClickSearch( )\"><ion-icon name=\"search\"></ion-icon></button>\n            </ion-buttons>\n\n        </ion-navbar>\n    "
         }), 
-        __metadata$13('design:paramtypes', [NavController, Events, Xapi])
+        __metadata$14('design:paramtypes', [NavController, Events, Xapi])
     ], HeaderComponent);
     return HeaderComponent;
 }());
 
-var __decorate$122 = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+var __decorate$123 = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
-var __metadata$14 = (undefined && undefined.__metadata) || function (k, v) {
+var __metadata$15 = (undefined && undefined.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 //import * as x from '../all';
@@ -84508,43 +84543,43 @@ var PasswordComponent = (function () {
         this.loading = false;
         this.cancel.emit(this);
     };
-    __decorate$122([
+    __decorate$123([
         Output(), 
-        __metadata$14('design:type', Object)
+        __metadata$15('design:type', Object)
     ], PasswordComponent.prototype, "beforeRequest", void 0);
-    __decorate$122([
+    __decorate$123([
         Output(), 
-        __metadata$14('design:type', Object)
+        __metadata$15('design:type', Object)
     ], PasswordComponent.prototype, "afterRequest", void 0);
-    __decorate$122([
+    __decorate$123([
         Output(), 
-        __metadata$14('design:type', Object)
+        __metadata$15('design:type', Object)
     ], PasswordComponent.prototype, "success", void 0);
-    __decorate$122([
+    __decorate$123([
         Output(), 
-        __metadata$14('design:type', Object)
+        __metadata$15('design:type', Object)
     ], PasswordComponent.prototype, "cancel", void 0);
-    __decorate$122([
+    __decorate$123([
         Output(), 
-        __metadata$14('design:type', Object)
+        __metadata$15('design:type', Object)
     ], PasswordComponent.prototype, "error", void 0);
-    PasswordComponent = __decorate$122([
+    PasswordComponent = __decorate$123([
         Component({
             selector: 'xapi-password',
             template: "\n    <ion-list>\n\n      <ion-item>\n        <ion-label primary stacked>{{t.OldPassword}}</ion-label>\n        <ion-input [(ngModel)]=\"user.old_password\" placeholder=\"{{t.Input_Old_Password}}\"></ion-input>\n      </ion-item>\n\n      <ion-item>\n        <ion-label primary stacked>{{t.NewPassword}}</ion-label>\n        <ion-input [(ngModel)]=\"user.new_password\" placeholder=\"{{t.Input_New_Password}}\"></ion-input>\n      </ion-item>\n\n      <ion-item *ngIf=\"loading\">\n        <ion-spinner></ion-spinner> Loading ...\n      </ion-item>\n      <ion-item *ngIf=\"message\">\n        <ion-icon name=\"star\"></ion-icon> {{ message }}\n      </ion-item>\n\n      <ion-item>\n        <button ion-button (click)=\"onClickUpdate()\">{{t.Update}}</button>\n        <button ion-button (click)=\"onClickCancel()\">{{t.Cancel}}</button>\n      </ion-item>\n\n  </ion-list>\n  "
         }), 
-        __metadata$14('design:paramtypes', [Xapi])
+        __metadata$15('design:paramtypes', [Xapi])
     ], PasswordComponent);
     return PasswordComponent;
 }());
 
-var __decorate$123 = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+var __decorate$124 = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
-var __metadata$15 = (undefined && undefined.__metadata) || function (k, v) {
+var __metadata$16 = (undefined && undefined.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var ResignComponent = (function () {
@@ -84599,43 +84634,43 @@ var ResignComponent = (function () {
         console.log("ResignComponent::onClickCancel()");
         this.cancel.emit(this);
     };
-    __decorate$123([
+    __decorate$124([
         Output(), 
-        __metadata$15('design:type', Object)
+        __metadata$16('design:type', Object)
     ], ResignComponent.prototype, "beforeRequest", void 0);
-    __decorate$123([
+    __decorate$124([
         Output(), 
-        __metadata$15('design:type', Object)
+        __metadata$16('design:type', Object)
     ], ResignComponent.prototype, "afterRequest", void 0);
-    __decorate$123([
+    __decorate$124([
         Output(), 
-        __metadata$15('design:type', Object)
+        __metadata$16('design:type', Object)
     ], ResignComponent.prototype, "success", void 0);
-    __decorate$123([
+    __decorate$124([
         Output(), 
-        __metadata$15('design:type', Object)
+        __metadata$16('design:type', Object)
     ], ResignComponent.prototype, "cancel", void 0);
-    __decorate$123([
+    __decorate$124([
         Output(), 
-        __metadata$15('design:type', Object)
+        __metadata$16('design:type', Object)
     ], ResignComponent.prototype, "error", void 0);
-    ResignComponent = __decorate$123([
+    ResignComponent = __decorate$124([
         Component({
             selector: 'xapi-resign',
             template: "\n        <ion-list>\n            <ion-item>\n                {{t.Title}}\n            </ion-item>\n\n            <ion-item *ngIf=\"loading\">\n                <ion-spinner></ion-spinner> Loading ...\n            </ion-item>\n            <ion-item *ngIf=\"message\">\n                <ion-icon name=\"star\"></ion-icon> {{ message }}\n            </ion-item>\n\n            <ion-item>\n                <button ion-button (click)=\"onClickYes()\">{{t.Yes}}</button>\n                <button ion-button (click)=\"onClickNo()\">{{t.No}}</button>\n            </ion-item>\n        </ion-list>\n    "
         }), 
-        __metadata$15('design:paramtypes', [Xapi])
+        __metadata$16('design:paramtypes', [Xapi])
     ], ResignComponent);
     return ResignComponent;
 }());
 
-var __decorate$124 = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+var __decorate$125 = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
-var __metadata$16 = (undefined && undefined.__metadata) || function (k, v) {
+var __metadata$17 = (undefined && undefined.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var ForumCategoryComponent = (function () {
@@ -84662,27 +84697,27 @@ var ForumCategoryComponent = (function () {
         console.log("ForumCategoryComponent::onClickForum()", slug);
         this.open.emit(slug);
     };
-    __decorate$124([
+    __decorate$125([
         Output(), 
-        __metadata$16('design:type', Object)
+        __metadata$17('design:type', Object)
     ], ForumCategoryComponent.prototype, "open", void 0);
-    ForumCategoryComponent = __decorate$124([
+    ForumCategoryComponent = __decorate$125([
         Component({
             selector: 'xapi-forum-category',
             template: "\n    <div *ngIf=\"message\">{{ message }}</div>\n    <ion-list *ngIf=\"categories\">\n        <ion-item *ngFor=\"let cat of categories; let i = index\" (click)=\"onClickForum( cat.slug )\">\n            {{ i }}\n            {{ cat.cat_name }}\n        </ion-item>\n    </ion-list>\n    "
         }), 
-        __metadata$16('design:paramtypes', [Xapi])
+        __metadata$17('design:paramtypes', [Xapi])
     ], ForumCategoryComponent);
     return ForumCategoryComponent;
 }());
 
-var __decorate$125 = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+var __decorate$126 = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
-var __metadata$17 = (undefined && undefined.__metadata) || function (k, v) {
+var __metadata$18 = (undefined && undefined.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var PostListComponent = (function () {
@@ -84740,16 +84775,16 @@ var PostListComponent = (function () {
             callback(re);
         }, function () { });
     };
-    __decorate$125([
+    __decorate$126([
         Input(), 
-        __metadata$17('design:type', String)
+        __metadata$18('design:type', String)
     ], PostListComponent.prototype, "slug", void 0);
-    PostListComponent = __decorate$125([
+    PostListComponent = __decorate$126([
         Component({
             selector: 'xapi-post-list',
             template: "\n    <h2>Post List : {{ slug }}</h2>\n    \n\n\n<ion-card *ngFor=\" let post of posts \">\n\n  <ion-item>\n    <ion-avatar item-left>\n      <img src=\"assets/tmp/marty-avatar.png\">\n    </ion-avatar>\n    <h2>{{ post.post_title }}</h2>\n    <p>{{ post.post_date }}</p>\n  </ion-item>\n\n  <img src=\"assets/tmp/advance-card-bttf.png\">\n\n  <ion-card-content>\n    {{ post.ID }}\n    <p>{{ post.post_content }}</p>\n  </ion-card-content>\n\n  <ion-row>\n    <ion-col>\n      <button ion-button color=\"primary\" clear small icon-left>\n        <ion-icon name='thumbs-up'></ion-icon>\n        0 Likes\n      </button>\n    </ion-col>\n    <ion-col>\n      <button ion-button color=\"primary\" clear small icon-left>\n        <ion-icon name='text'></ion-icon>\n        0 Comments\n      </button>\n    </ion-col>\n    <ion-col center text-center>\n      <ion-note>\n        11h ago\n      </ion-note>\n    </ion-col>\n  </ion-row>\n\n</ion-card>\n    \n\n    "
         }), 
-        __metadata$17('design:paramtypes', [Xapi])
+        __metadata$18('design:paramtypes', [Xapi])
     ], PostListComponent);
     return PostListComponent;
 }());
@@ -85475,13 +85510,13 @@ var FileUploader = (function () {
 }());
 var FileUploader_1 = FileUploader;
 
-var __decorate$127 = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+var __decorate$128 = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
-var __metadata$19 = (undefined && undefined.__metadata) || function (k, v) {
+var __metadata$20 = (undefined && undefined.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var Config$1 = (function () {
@@ -85489,20 +85524,20 @@ var Config$1 = (function () {
     }
     Config.serverUrl = "http://work.org/wordpress/index.php";
     Config.uploadUrl = Config.serverUrl + "?xapi=file.upload&type=any";
-    Config = __decorate$127([
+    Config = __decorate$128([
         Injectable(), 
-        __metadata$19('design:paramtypes', [])
+        __metadata$20('design:paramtypes', [])
     ], Config);
     return Config;
 }());
 
-var __decorate$126 = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+var __decorate$127 = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
-var __metadata$18 = (undefined && undefined.__metadata) || function (k, v) {
+var __metadata$19 = (undefined && undefined.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var PostEditComponent = (function () {
@@ -85609,28 +85644,28 @@ var PostEditComponent = (function () {
     PostEditComponent.prototype.onDelete = function (id) {
         console.log('delete: ' + id);
     };
-    PostEditComponent = __decorate$126([
+    PostEditComponent = __decorate$127([
         Component({
             selector: 'xapi-post-edit',template:/*ion-inline-start:"F:\QuestionBuilder\src\xmodule\components\post-edit\post-edit.html"*/'    <ion-card *ngIf="!isCordova" id="photo">\n\n      <div class="wrap">\n\n        <div><img [src]="urlPhoto"></div>\n\n        <input type="file" (change)="onChangeFileBrowser($event)">\n\n        <span>Photo upload</span>\n\n      </div>\n\n    </ion-card>\n\n\n\n    <ion-card *ngIf="isCordova" id="photo" (click)="onClickFileApp()">\n\n      <div class="wrap">\n\n        <div><img [src]="urlPhoto"></div>\n\n        <button primary>CORDOVA UPLOAD</button>\n\n      </div>\n\n    </ion-card>\n\n    \n\n    \n\n    \n\n    <ion-list class="display-uploaded-files">\n\n\n\n      <ion-item class="file" *ngFor=" let id of imageKeys ">\n\n        <img src="{{ images[id] }}" />\n\n        <button ion-button (click)="onDelete( id )">DELETE</button>\n\n      </ion-item>\n\n      \n\n    </ion-list>\n\n      \n\n\n\n\n\n    <ion-list text-wrap>\n\n      <ion-item-divider light>\n\n        <h2>Fill in all Information</h2>\n\n      </ion-item-divider>\n\n      <ion-item>\n\n        <ion-label floating>{{ \'Name\' }}</ion-label>\n\n        <ion-input [(ngModel)]="name"></ion-input>\n\n      </ion-item>\n\n\n\n      <ion-item>\n\n        <ion-label floating>{{ \'Address\' }}</ion-label>\n\n        <ion-input text-wrap [(ngModel)]="address" ></ion-input>\n\n      </ion-item>\n\n\n\n\n\n\n\n      <ion-item>\n\n        <ion-label floating>{{ \'Password\' }}</ion-label>\n\n        <ion-input [(ngModel)]="password" ></ion-input>\n\n      </ion-item>\n\n\n\n      <ion-item>\n\n        <ion-label floating>{{ \'Mobile No.\' }}</ion-label>\n\n        <ion-input [(ngModel)]="mobile" ></ion-input>\n\n      </ion-item>\n\n\n\n      <ion-item>\n\n        <ion-label floating>{{ \'Title\'  }}</ion-label>\n\n        <ion-input [(ngModel)]="post_title"></ion-input>\n\n      </ion-item>\n\n\n\n\n\n      <ion-item>\n\n        <ion-label floating>{{ \'Content\'  }}</ion-label>\n\n        <ion-textarea [(ngModel)]="post_content" [class.focused]=\'isFocused\' (focus)="isFocused=true"></ion-textarea>\n\n      </ion-item>\n\n\n\n      <button  (click)="onClickPost()">POST CREATE SUBMIT</button>\n\n\n\n    </ion-list>'/*ion-inline-end:"F:\QuestionBuilder\src\xmodule\components\post-edit\post-edit.html"*/
         }), 
-        __metadata$18('design:paramtypes', [Platform, Xapi])
+        __metadata$19('design:paramtypes', [Platform, Xapi])
     ], PostEditComponent);
     return PostEditComponent;
 }());
 
-var __decorate$120 = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+var __decorate$121 = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
-var __metadata$12 = (undefined && undefined.__metadata) || function (k, v) {
+var __metadata$13 = (undefined && undefined.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var XModule = (function () {
     function XModule() {
     }
-    XModule = __decorate$120([
+    XModule = __decorate$121([
         NgModule({
             declarations: [
                 HeaderComponent,
@@ -85664,18 +85699,18 @@ var XModule = (function () {
                 PostEditComponent
             ]
         }), 
-        __metadata$12('design:paramtypes', [])
+        __metadata$13('design:paramtypes', [])
     ], XModule);
     return XModule;
 }());
 
-var __decorate$128 = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+var __decorate$129 = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
-var __metadata$20 = (undefined && undefined.__metadata) || function (k, v) {
+var __metadata$21 = (undefined && undefined.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 /*
@@ -85712,22 +85747,22 @@ var Logout = (function () {
         this.x.alert("Log out", "Logging out");
         this.logout();
     };
-    Logout = __decorate$128([
+    Logout = __decorate$129([
         Component({
             selector: 'logout',template:/*ion-inline-start:"F:\QuestionBuilder\src\components\logout\logout.html"*/'<ion-buttons right>\n        <button ion-button color="primary" (click)="onClickLogout()">\n             <ion-icon name="exit" class="logoutIco"></ion-icon>\n        </button>         \n</ion-buttons>'/*ion-inline-end:"F:\QuestionBuilder\src\components\logout\logout.html"*/
         }), 
-        __metadata$20('design:paramtypes', [NavController, ViewController, Events, Xapi, NavParams])
+        __metadata$21('design:paramtypes', [NavController, ViewController, Events, Xapi, NavParams])
     ], Logout);
     return Logout;
 }());
 
-var __decorate$129 = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+var __decorate$130 = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
-var __metadata$21 = (undefined && undefined.__metadata) || function (k, v) {
+var __metadata$22 = (undefined && undefined.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 /*
@@ -85839,11 +85874,11 @@ var Createupdate = (function () {
     Createupdate.prototype.onDelete = function (id) {
         console.log('delete: ' + id);
     };
-    Createupdate = __decorate$129([
+    Createupdate = __decorate$130([
         Component({
             selector: 'createupdate',template:/*ion-inline-start:"F:\QuestionBuilder\src\components\createupdate\createupdate.html"*/'\n    <ion-list text-wrap>\n      <ion-item-divider light>\n        <h2>Fill in all Information</h2>\n      </ion-item-divider>\n      <ion-item>\n        <ion-label floating>{{ \'Name\' }}</ion-label>\n        <ion-input [(ngModel)]="name"></ion-input>\n      </ion-item>\n\n      <ion-item>\n        <ion-label floating>{{ \'Address\' }}</ion-label>\n        <ion-input text-wrap [(ngModel)]="address" ></ion-input>\n      </ion-item>\n\n\n\n      <ion-item>\n        <ion-label floating>{{ \'Password\' }}</ion-label>\n        <ion-input [(ngModel)]="password" ></ion-input>\n      </ion-item>\n\n      <ion-item>\n        <ion-label floating>{{ \'Mobile No.\' }}</ion-label>\n        <ion-input [(ngModel)]="mobile" ></ion-input>\n      </ion-item>\n\n      <ion-item>\n        <ion-label floating>{{ \'Title\'  }}</ion-label>\n        <ion-input [(ngModel)]="post_title"></ion-input>\n      </ion-item>\n\n\n      <ion-item>\n        <ion-label floating>{{ \'Content\'  }}</ion-label>\n        <ion-textarea [(ngModel)]="post_content" [class.focused]=\'isFocused\' (focus)="isFocused=true"></ion-textarea>\n      </ion-item>\n      <ion-item>\n        <button ion-button color="secondary" outline (click)="onClickPost()">POST CREATE SUBMIT</button>\n      </ion-item>\n\n\n    </ion-list>'/*ion-inline-end:"F:\QuestionBuilder\src\components\createupdate\createupdate.html"*/
         }), 
-        __metadata$21('design:paramtypes', [Platform, Xapi])
+        __metadata$22('design:paramtypes', [Platform, Xapi])
     ], Createupdate);
     return Createupdate;
 }());
@@ -85871,7 +85906,8 @@ var AppModule = (function () {
                 Logout,
                 List$1,
                 CreateUpdateForm,
-                Createupdate
+                Createupdate,
+                Delete
             ],
             imports: [
                 XModule,
@@ -85887,7 +85923,8 @@ var AppModule = (function () {
                 Logout,
                 List$1,
                 CreateUpdateForm,
-                Createupdate
+                Createupdate,
+                Delete
             ],
             providers: []
         }), 

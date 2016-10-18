@@ -2,11 +2,13 @@ import { Component } from '@angular/core';
 import { LoginPage } from '../login/login';
 import { RegisterPage } from '../register/register';
 import { Questionsform } from '../questionsform/questionsform';
+import { Delete } from '../delete/delete';
 import { NavController, Events, ViewController } from 'ionic-angular';
 import { NavParams } from 'ionic-angular';
 import * as xi from '../../xmodule/interfaces/xapi';
 import { Xapi } from '../../xmodule/providers/xapi';
 import { PageController } from '../../xmodule/providers/page-controller';
+import { AlertController } from 'ionic-angular';
 
 @Component({
   selector: 'page-dashboard',
@@ -17,56 +19,57 @@ export class Dashboard {
   userLogged:string;
   user: xi.UserLoginData;
   
-  constructor(private navCtrl: NavController, private viewCtrl: ViewController ,private events: Events,private x: Xapi, private navPar: NavParams) {
+  constructor(private navCtrl: NavController, private alertCtrl: AlertController, private viewCtrl: ViewController ,private events: Events,private x: Xapi, private navPar: NavParams) {
       this.x.getLoginData( x => this.login(x) );
       this.userLogged = this.navPar.get('thisstring');
-    
-
-    this.events.subscribe( 'logout', () => {
-      console.log('HomePage::constructor::event logout');
-      this.logout();
-    });
-    this.events.subscribe( 'resign', () => {
-      console.log('HomePage::constructor::event resign');
-      this.logout();
-    });
-    this.events.subscribe( 'login', (x) => {
-      console.log('HomePage::constructor::event logout');
-      this.login(x);
-    });
-    this.events.subscribe( 'register', x => {
-      console.log('HomePage::constructor::event register');
-      this.login(x);
-    });
 
     PageController.page.login = LoginPage;
     PageController.page.register = RegisterPage;
 
   }
+
+  onClickChange(){
+    console.log('Change Password');
+    let prompt = this.alertCtrl.create({
+      title: 'Login',
+      message: "Enter a name for this new album you're so keen on adding",
+      inputs: [
+        {
+          name: 'title',
+          placeholder: 'Title'
+        },{
+          name: 'title',
+          placeholder: 'Title'
+        }
+      ],
+      buttons: [
+        {
+          text: 'Cancel',
+          handler: data => {
+            console.log('Cancel clicked');
+          }
+        },
+        {
+          text: 'Save',
+          handler: data => {
+            console.log('Saved clicked');
+          }
+        }
+      ]
+    });
+    prompt.present();
+  }
+
   
   ionViewDidLoad() {
     console.log("HomePage::ionViewDidLoad()");
-   
+  }
+  onClickDelete(){
+    console.log('delete');
+    this.navCtrl.push(Delete);
   }
   login( u: xi.UserLoginData ) {
     this.user = u;
-  }
-  logout() {
-    
-    this.user = '';
-    this.navCtrl.setRoot(LoginPage);
-  }
-  // onClickLogout() {
-  //       // this.x.logout();
-  //       this.x.alert("Log out", "Logging out");
-  //       this.logout();
-  // }
-  onClickUpdate() {
-    console.log(this.user.display_name);
-    //this.navCtrl.push( RegisterPage );
-  }
-  onClickChangePassword() {
-    //this.navCtrl.push( PasswordPage );
   }
   onClickAdd(){
     this.navCtrl.push( Questionsform );
