@@ -4,16 +4,18 @@ page-dashboard {
         text-align: center;
         height: 80px;
         cursor: pointer;
+        
     }
     .cardTitle{
         font-size: 1.0em;
         position: absolute;
         top: 35%;
         width: 100%;
-        color:grey;
+        color:black;
     }
     .btnCard{
         width: 100%;
+        background-color: silver;
     }
     .logoutIco{
         font-size: 1.5em;

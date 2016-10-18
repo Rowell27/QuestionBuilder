@@ -21126,11 +21126,12 @@ page-dashboard .cardTitle {
   position: absolute;
   top: 35%;
   width: 100%;
-  color: grey;
+  color: black;
 }
 
 page-dashboard .btnCard {
   width: 100%;
+  background-color: silver;
 }
 
 page-dashboard .logoutIco {

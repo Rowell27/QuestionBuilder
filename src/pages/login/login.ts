@@ -15,6 +15,7 @@ export class LoginPage {
   appTitle = "Login";
   loading: boolean = false;
   errorMessage: string = '';
+
   @ViewChild('Login') userLog: LoginComponent;
   constructor(public navCtrl: NavController,private api: Xapi, private viewCtrl: ViewController) {
     console.log("LoginPage::constrcutor()");
