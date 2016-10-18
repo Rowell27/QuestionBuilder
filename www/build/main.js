@@ -84020,7 +84020,7 @@ var RegisterPage = (function () {
         __metadata$6('design:type', RegisterComponent)
     ], RegisterPage.prototype, "register", void 0);
     RegisterPage = __decorate$114([
-        Component({template:/*ion-inline-start:"F:\QuestionBuilder\src\pages\register\register.html"*/'<ion-header>\n\n  \n\n  <ion-navbar>\n\n    <ion-title>User Register</ion-title>\n\n  </ion-navbar>\n\n\n\n</ion-header>\n\n<ion-content padding>\n\n  <xapi-register #Register\n\n      (beforeRequest)="onBeforeRequest($event)"\n\n      (afterRequest)="onAfterRequest($event)"\n\n      (success)="onSuccess($event)"\n\n      (update)="onUpdate($event)"\n\n      (cancel)="onCancel($event)"\n\n      (error)="onError($event)"\n\n    ></xapi-register>\n\n    <div *ngIf="loading">\n\n      <ion-spinner></ion-spinner>\n\n    </div>\n\n    <div *ngIf="errorMessage">\n\n      {{ errorMessage }}\n\n    </div>\n\n</ion-content>\n\n'/*ion-inline-end:"F:\QuestionBuilder\src\pages\register\register.html"*/,
+        Component({template:/*ion-inline-start:"D:\work\New folder\QuestionBuilder\src\pages\register\register.html"*/'<ion-header>\n\n  \n\n  <ion-navbar>\n\n    <ion-title>User Register</ion-title>\n\n  </ion-navbar>\n\n\n\n</ion-header>\n\n<ion-content padding>\n\n  <xapi-register #Register\n\n      (beforeRequest)="onBeforeRequest($event)"\n\n      (afterRequest)="onAfterRequest($event)"\n\n      (success)="onSuccess($event)"\n\n      (update)="onUpdate($event)"\n\n      (cancel)="onCancel($event)"\n\n      (error)="onError($event)"\n\n    ></xapi-register>\n\n    <div *ngIf="loading">\n\n      <ion-spinner></ion-spinner>\n\n    </div>\n\n    <div *ngIf="errorMessage">\n\n      {{ errorMessage }}\n\n    </div>\n\n</ion-content>\n\n'/*ion-inline-end:"D:\work\New folder\QuestionBuilder\src\pages\register\register.html"*/,
             providers: [Xapi]
         }), 
         __metadata$6('design:paramtypes', [NavController, Xapi])
@@ -84046,7 +84046,7 @@ var CreateUpdateForm = (function () {
     };
     CreateUpdateForm = __decorate$118([
         Component({
-            selector: 'page-form',template:/*ion-inline-start:"F:\QuestionBuilder\src\pages\form\form.html"*/'<!--\n\n  Generated template for the PostEdit page.\n\n\n\n  See http://ionicframework.com/docs/v2/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n<ion-header>\n\n\n\n  <ion-navbar>\n\n    <logout></logout>\n\n  </ion-navbar>\n\n\n\n</ion-header>\n\n\n\n\n\n<ion-content padding>\n\n  <createupdate>\n\n\n\n  </createupdate>\n\n</ion-content>\n\n'/*ion-inline-end:"F:\QuestionBuilder\src\pages\form\form.html"*/
+            selector: 'page-form',template:/*ion-inline-start:"D:\work\New folder\QuestionBuilder\src\pages\form\form.html"*/'<!--\n\n  Generated template for the PostEdit page.\n\n\n\n  See http://ionicframework.com/docs/v2/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n<ion-header>\n\n\n\n  <ion-navbar>\n\n    <logout></logout>\n\n  </ion-navbar>\n\n\n\n</ion-header>\n\n\n\n\n\n<ion-content padding>\n\n  <createupdate>\n\n\n\n  </createupdate>\n\n</ion-content>\n\n'/*ion-inline-end:"D:\work\New folder\QuestionBuilder\src\pages\form\form.html"*/
         }), 
         __metadata$10('design:paramtypes', [NavController])
     ], CreateUpdateForm);
@@ -84120,7 +84120,9 @@ var List$1 = (function () {
     };
     List$$1.prototype.thread = function () {
         console.log('ok');
-        this.navCtrl.push(CreateUpdateForm);
+        this.navCtrl.push(CreateUpdateForm, {
+            title: 'Edit Question'
+        });
     };
     __decorate$117([
         Input(), 
@@ -84128,7 +84130,7 @@ var List$1 = (function () {
     ], List$$1.prototype, "slug", void 0);
     List$$1 = __decorate$117([
         Component({
-            selector: 'question-list',template:/*ion-inline-start:"F:\QuestionBuilder\src\components\list\list.html"*/'<h2>List:</h2>\n\n<ion-card *ngFor=" let post of posts " (click)="thread()">\n\n\n\n<ion-item>\n\n    <h2>{{ post.post_title }}</h2>\n\n</ion-item>\n\n\n\n\n\n<ion-card-content>\n\n    {{ post.ID }}\n\n    <p>{{ post.post_content }}</p>\n\n</ion-card-content>\n\n\n\n</ion-card>'/*ion-inline-end:"F:\QuestionBuilder\src\components\list\list.html"*/
+            selector: 'question-list',template:/*ion-inline-start:"D:\work\New folder\QuestionBuilder\src\components\list\list.html"*/'<h2>List:</h2>\n\n<ion-card *ngFor=" let post of posts ">\n\n\n\n<ion-item>\n\n    <h2>{{ post.post_title }}</h2>\n\n</ion-item>\n\n\n\n\n\n<ion-card-content>\n\n    {{ post.ID }}\n\n    <p>{{ post.post_content }}</p>\n\n</ion-card-content>\n\n\n\n</ion-card>'/*ion-inline-end:"D:\work\New folder\QuestionBuilder\src\components\list\list.html"*/
         }), 
         __metadata$9('design:paramtypes', [Xapi, NavController])
     ], List$$1);
@@ -84161,7 +84163,9 @@ var Questionsform = (function () {
         console.log("PostListPage::ionViewDidLoad()", this.postListComponent.slug);
     };
     Questionsform.prototype.addIco = function () {
-        this.navCtrl.push(CreateUpdateForm);
+        this.navCtrl.push(CreateUpdateForm, {
+            title: 'Create New Question'
+        });
     };
     __decorate$116([
         ViewChild('xapiPostList'), 
@@ -84169,7 +84173,7 @@ var Questionsform = (function () {
     ], Questionsform.prototype, "postListComponent", void 0);
     Questionsform = __decorate$116([
         Component({
-            selector: 'page-questionsform',template:/*ion-inline-start:"F:\QuestionBuilder\src\pages\questionsform\questionsform.html"*/'<!--\n\n  Generated template for the Questionsform page.\n\n\n\n  See http://ionicframework.com/docs/v2/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n<ion-header>\n\n\n\n  <ion-navbar>\n\n    <logout></logout>\n\n  </ion-navbar>\n\n\n\n</ion-header>\n\n\n\n\n\n<ion-content padding>\n\n  <ion-buttons right>\n\n      <button  (click)="addIco()" class="btnIcon">\n\n          <ion-icon name="add-circle" class="addIcon"></ion-icon>\n\n      </button>\n\n  </ion-buttons>\n\n  \n\n  <question-list\n\n    #xapiPostList\n\n    [slug]="slug"\n\n    (view)="onClickView( $event )"\n\n    (vote)="onClicVote( $event )"\n\n  ></question-list>\n\n\n\n</ion-content>\n\n'/*ion-inline-end:"F:\QuestionBuilder\src\pages\questionsform\questionsform.html"*/
+            selector: 'page-questionsform',template:/*ion-inline-start:"D:\work\New folder\QuestionBuilder\src\pages\questionsform\questionsform.html"*/'<!--\n\n  Generated template for the Questionsform page.\n\n\n\n  See http://ionicframework.com/docs/v2/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n<ion-header>\n\n\n\n  <ion-navbar>\n\n    <logout></logout>\n\n  </ion-navbar>\n\n\n\n</ion-header>\n\n\n\n\n\n<ion-content padding>\n\n  <ion-buttons right>\n\n      <button  (click)="addIco()" class="btnIcon">\n\n          <ion-icon name="add-circle" class="addIcon"></ion-icon>\n\n      </button>\n\n  </ion-buttons>\n\n  \n\n  <question-list\n\n    #xapiPostList\n\n    [slug]="slug"\n\n    (view)="onClickView( $event )"\n\n    (vote)="onClicVote( $event )"\n\n  ></question-list>\n\n\n\n</ion-content>\n\n'/*ion-inline-end:"D:\work\New folder\QuestionBuilder\src\pages\questionsform\questionsform.html"*/
         }), 
         __metadata$8('design:paramtypes', [NavController, NavParams])
     ], Questionsform);
@@ -84200,7 +84204,7 @@ var Delete = (function () {
     };
     Delete = __decorate$119([
         Component({
-            selector: 'page-delete',template:/*ion-inline-start:"F:\QuestionBuilder\src\pages\delete\delete.html"*/'<!--\n  Generated template for the Delete page.\n\n  See http://ionicframework.com/docs/v2/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>delete</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n\n</ion-content>\n'/*ion-inline-end:"F:\QuestionBuilder\src\pages\delete\delete.html"*/
+            selector: 'page-delete',template:/*ion-inline-start:"D:\work\New folder\QuestionBuilder\src\pages\delete\delete.html"*/'<!--\n\n  Generated template for the Delete page.\n\n\n\n  See http://ionicframework.com/docs/v2/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n<ion-header>\n\n\n\n  <ion-navbar>\n\n    <logout>\n\n\n\n    </logout>\n\n  </ion-navbar>\n\n\n\n</ion-header>\n\n\n\n\n\n<ion-content padding>\n\n\n\n  <question-list>\n\n    \n\n  </question-list>\n\n\n\n</ion-content>\n\n'/*ion-inline-end:"D:\work\New folder\QuestionBuilder\src\pages\delete\delete.html"*/
         }), 
         __metadata$11('design:paramtypes', [NavController])
     ], Delete);
@@ -84263,7 +84267,10 @@ var Dashboard = (function () {
                 {
                     name: 'title',
                     placeholder: 'Title'
-                },
+                }, {
+                    name: 'title',
+                    placeholder: 'Title'
+                }
             ],
             buttons: [
                 {
@@ -84297,7 +84304,7 @@ var Dashboard = (function () {
     };
     Dashboard = __decorate$113([
         Component({
-            selector: 'page-dashboard',template:/*ion-inline-start:"F:\QuestionBuilder\src\pages\dashboard\dashboard.html"*/'<ion-header>\n\n  <ion-navbar hideBackButton>\n\n    \n\n    <logout>\n\n    </logout>\n\n  </ion-navbar>\n\n</ion-header>\n\n<ion-content padding>\n\n  <h2 *ngIf="user">Welcome {{ user.user_nicename }}</h2>\n\n  <section *ngIf="user">\n\n    <p class="container">\n\n      \n\n    </p>\n\n    <p class="container">\n\n      \n\n    </p>\n\n  </section>\n\n\n\n<ion-grid>\n\n  \n\n  <ion-list>\n\n    <ion-item>\n\n      <ion-label>Quiz Management</ion-label>\n\n    </ion-item>\n\n    \n\n    <ion-item>\n\n      <ion-row>\n\n        <ion-col width-45> \n\n          <ion-card class="btnCard" (click)="onClickAdd()">\n\n            <p class="cardTitle"><ion-icon name="document"></ion-icon>\n\n              Add/Edit Question\n\n            </p>\n\n          </ion-card>\n\n        </ion-col>\n\n\n\n        <ion-col width-45>\n\n          <ion-card class="btnCard" (click)="onClickDelete()">\n\n            <p class="cardTitle">\n\n              <ion-icon name="trash"></ion-icon>\n\n                Remove Question\n\n            </p>\n\n          </ion-card>\n\n        </ion-col>\n\n       </ion-row>\n\n    </ion-item>\n\n\n\n\n\n    <ion-item>\n\n      <ion-label>Account Settings</ion-label>\n\n    </ion-item>\n\n\n\n        \n\n    <ion-item>\n\n      <ion-row>\n\n        <ion-col width-45> \n\n          <ion-card class="btnCard" (click)="onClickChange()">\n\n            <p class="cardTitle"><ion-icon name="lock"></ion-icon>\n\n              Change Password\n\n            </p>\n\n          </ion-card>\n\n        </ion-col>\n\n\n\n       </ion-row>\n\n    </ion-item>\n\n    \n\n  </ion-list>\n\n</ion-grid>\n\n</ion-content>\n\n'/*ion-inline-end:"F:\QuestionBuilder\src\pages\dashboard\dashboard.html"*/
+            selector: 'page-dashboard',template:/*ion-inline-start:"D:\work\New folder\QuestionBuilder\src\pages\dashboard\dashboard.html"*/'<ion-header>\n\n  <ion-navbar hideBackButton>\n\n    \n\n    <logout>\n\n    </logout>\n\n  </ion-navbar>\n\n</ion-header>\n\n<ion-content padding>\n\n  <h2 *ngIf="user">Welcome {{ user.user_nicename }}</h2>\n\n  <section *ngIf="user">\n\n    <p class="container">\n\n      \n\n    </p>\n\n    <p class="container">\n\n      \n\n    </p>\n\n  </section>\n\n\n\n<ion-grid>\n\n  \n\n  <ion-list>\n\n    <ion-item>\n\n      <ion-label>Quiz Management</ion-label>\n\n    </ion-item>\n\n    \n\n    <ion-item>\n\n      <ion-row>\n\n        <ion-col width-45> \n\n          <ion-card class="btnCard" (click)="onClickAdd()">\n\n            <p class="cardTitle"><ion-icon name="document"></ion-icon>\n\n              Add/Edit Question\n\n            </p>\n\n          </ion-card>\n\n        </ion-col>\n\n\n\n        <ion-col width-45>\n\n          <ion-card class="btnCard" (click)="onClickDelete()">\n\n            <p class="cardTitle">\n\n              <ion-icon name="trash"></ion-icon>\n\n                Remove Question\n\n            </p>\n\n          </ion-card>\n\n        </ion-col>\n\n       </ion-row>\n\n    </ion-item>\n\n\n\n\n\n    <ion-item>\n\n      <ion-label>Account Settings</ion-label>\n\n    </ion-item>\n\n\n\n        \n\n    <ion-item>\n\n      <ion-row>\n\n        <ion-col width-45> \n\n          <ion-card class="btnCard" (click)="onClickChange()">\n\n            <p class="cardTitle"><ion-icon name="lock"></ion-icon>\n\n              Change Password\n\n            </p>\n\n          </ion-card>\n\n        </ion-col>\n\n\n\n       </ion-row>\n\n    </ion-item>\n\n    \n\n  </ion-list>\n\n</ion-grid>\n\n</ion-content>\n\n'/*ion-inline-end:"D:\work\New folder\QuestionBuilder\src\pages\dashboard\dashboard.html"*/
         }), 
         __metadata$5('design:paramtypes', [NavController, AlertController, ViewController, Events, Xapi, NavParams])
     ], Dashboard);
@@ -84350,7 +84357,7 @@ var LoginPage = (function () {
     ], LoginPage.prototype, "userLog", void 0);
     LoginPage = __decorate$109([
         Component({
-            selector: 'page-login',template:/*ion-inline-start:"F:\QuestionBuilder\src\pages\login\login.html"*/'<ion-header>\n\n  \n\n  <ion-navbar hideBackButton>\n\n    <ion-title>User Login</ion-title>\n\n  </ion-navbar>\n\n\n\n</ion-header>\n\n\n\n<ion-content padding>\n\n  <xapi-login #Login\n\n      (beforeRequest)="onBeforeRequest($event)"\n\n      (afterRequest)="onAfterRequest($event)"\n\n      (success)="onSuccess($event)"\n\n      (cancel)="onCancel($event)"\n\n      (error)="onError($event)"\n\n  ></xapi-login>\n\n</ion-content>\n\n'/*ion-inline-end:"F:\QuestionBuilder\src\pages\login\login.html"*/
+            selector: 'page-login',template:/*ion-inline-start:"D:\work\New folder\QuestionBuilder\src\pages\login\login.html"*/'<ion-header>\n\n  \n\n  <ion-navbar hideBackButton>\n\n    <ion-title>User Login</ion-title>\n\n  </ion-navbar>\n\n\n\n</ion-header>\n\n\n\n<ion-content padding>\n\n  <xapi-login #Login\n\n      (beforeRequest)="onBeforeRequest($event)"\n\n      (afterRequest)="onAfterRequest($event)"\n\n      (success)="onSuccess($event)"\n\n      (cancel)="onCancel($event)"\n\n      (error)="onError($event)"\n\n  ></xapi-login>\n\n</ion-content>\n\n'/*ion-inline-end:"D:\work\New folder\QuestionBuilder\src\pages\login\login.html"*/
         }), 
         __metadata$2('design:paramtypes', [NavController, Xapi, ViewController])
     ], LoginPage);
@@ -84723,8 +84730,19 @@ var __metadata$18 = (undefined && undefined.__metadata) || function (k, v) {
 var PostListComponent = (function () {
     function PostListComponent(x) {
         this.x = x;
+        this.more = [];
         this.posts = [];
         this.page = 0;
+        this.featuredImage = "x-assets/img/sunset.jpg";
+        this.edit = new EventEmitter();
+        this.delete = new EventEmitter();
+        this.report = new EventEmitter();
+        this.copy = new EventEmitter();
+        this.move = new EventEmitter();
+        this.blind = new EventEmitter();
+        this.block = new EventEmitter();
+        this.message = new EventEmitter();
+        this.userPosts = new EventEmitter();
         console.log('PostListComponent::constructor()', this.slug);
     }
     PostListComponent.prototype.ngOnInit = function () {
@@ -84762,7 +84780,7 @@ var PostListComponent = (function () {
         });
     };
     PostListComponent.prototype.displayPosts = function (posts) {
-        console.log('displayPosts()', posts);
+        //console.log('displayPosts()', posts);
         for (var _i = 0, posts_1 = posts; _i < posts_1.length; _i++) {
             var post = posts_1[_i];
             this.posts.push(post);
@@ -84775,14 +84793,85 @@ var PostListComponent = (function () {
             callback(re);
         }, function () { });
     };
+    PostListComponent.prototype.onClickEdit = function (post_ID) {
+        console.log('onClickEdit()', post_ID);
+        this.edit.emit(post_ID);
+    };
+    PostListComponent.prototype.onClickDelete = function (post_ID) {
+        console.log('onClickDel()', post_ID);
+        this.delete.emit(post_ID);
+    };
+    PostListComponent.prototype.onClickReport = function (post_ID) {
+        console.log('onClickReport()', post_ID);
+        this.report.emit(post_ID);
+    };
+    PostListComponent.prototype.onClickCopy = function (post_ID) {
+        console.log('onClickCopy()', post_ID);
+        this.copy.emit(post_ID);
+    };
+    PostListComponent.prototype.onClickMove = function (post_ID) {
+        console.log('onClickMove()', post_ID);
+        this.move.emit(post_ID);
+    };
+    PostListComponent.prototype.onClickBlind = function (post_ID) {
+        console.log('onClickBlind()', post_ID);
+        this.blind.emit(post_ID);
+    };
+    PostListComponent.prototype.onClickMessage = function (post_ID) {
+        console.log('onClickMessage()', post_ID);
+        this.message.emit(post_ID);
+    };
+    PostListComponent.prototype.onClickPosts = function (post_ID) {
+        console.log('onClickPosts()', post_ID);
+        this.userPosts.emit(post_ID);
+    };
+    PostListComponent.prototype.onClickBlock = function (post_ID) {
+        console.log('onClickBlock()', post_ID);
+        this.block.emit(post_ID);
+    };
     __decorate$126([
         Input(), 
         __metadata$18('design:type', String)
     ], PostListComponent.prototype, "slug", void 0);
+    __decorate$126([
+        Output(), 
+        __metadata$18('design:type', Object)
+    ], PostListComponent.prototype, "edit", void 0);
+    __decorate$126([
+        Output(), 
+        __metadata$18('design:type', Object)
+    ], PostListComponent.prototype, "delete", void 0);
+    __decorate$126([
+        Output(), 
+        __metadata$18('design:type', Object)
+    ], PostListComponent.prototype, "report", void 0);
+    __decorate$126([
+        Output(), 
+        __metadata$18('design:type', Object)
+    ], PostListComponent.prototype, "copy", void 0);
+    __decorate$126([
+        Output(), 
+        __metadata$18('design:type', Object)
+    ], PostListComponent.prototype, "move", void 0);
+    __decorate$126([
+        Output(), 
+        __metadata$18('design:type', Object)
+    ], PostListComponent.prototype, "blind", void 0);
+    __decorate$126([
+        Output(), 
+        __metadata$18('design:type', Object)
+    ], PostListComponent.prototype, "block", void 0);
+    __decorate$126([
+        Output(), 
+        __metadata$18('design:type', Object)
+    ], PostListComponent.prototype, "message", void 0);
+    __decorate$126([
+        Output(), 
+        __metadata$18('design:type', Object)
+    ], PostListComponent.prototype, "userPosts", void 0);
     PostListComponent = __decorate$126([
         Component({
-            selector: 'xapi-post-list',
-            template: "\n    <h2>Post List : {{ slug }}</h2>\n    \n\n\n<ion-card *ngFor=\" let post of posts \">\n\n  <ion-item>\n    <ion-avatar item-left>\n      <img src=\"assets/tmp/marty-avatar.png\">\n    </ion-avatar>\n    <h2>{{ post.post_title }}</h2>\n    <p>{{ post.post_date }}</p>\n  </ion-item>\n\n  <img src=\"assets/tmp/advance-card-bttf.png\">\n\n  <ion-card-content>\n    {{ post.ID }}\n    <p>{{ post.post_content }}</p>\n  </ion-card-content>\n\n  <ion-row>\n    <ion-col>\n      <button ion-button color=\"primary\" clear small icon-left>\n        <ion-icon name='thumbs-up'></ion-icon>\n        0 Likes\n      </button>\n    </ion-col>\n    <ion-col>\n      <button ion-button color=\"primary\" clear small icon-left>\n        <ion-icon name='text'></ion-icon>\n        0 Comments\n      </button>\n    </ion-col>\n    <ion-col center text-center>\n      <ion-note>\n        11h ago\n      </ion-note>\n    </ion-col>\n  </ion-row>\n\n</ion-card>\n    \n\n    "
+            selector: 'xapi-post-list',template:/*ion-inline-start:"D:\work\New folder\QuestionBuilder\src\xmodule\components\post-list\post-list.html"*/'<section id="post-list">\n\n    <h2>Post List : {{ slug }}</h2>\n\n    \n\n\n\n\n\n<ion-card *ngFor=" let post of posts ">\n\n\n\n  <ion-item class="header">\n\n    <ion-avatar item-left>\n\n      <img src="x-assets/img/anonymous.gif">\n\n    </ion-avatar>\n\n    <h2>{{ post.post_title }}</h2>\n\n    <p>{{ post.post_date }}</p>\n\n  </ion-item>\n\n\n\n  <div *ngIf="post.images">\n\n    <img src="{{ post.images[0] }}">\n\n  </div>\n\n  \n\n  <!--\n\n    Show thubnails only when there are more than 2 images.\n\n  -->\n\n    <span class="images" *ngIf=" post.images && post.images.length > 1 ">\n\n        <span class="image" *ngFor=" let url of post.images ">\n\n            <img src="{{ url }}">\n\n        </span>\n\n    </span>\n\n\n\n\n\n  <ion-card-content>\n\n    {{ post.ID }}\n\n    <p>{{ post.post_content }}</p>\n\n    \n\n    \n\n\n\n  </ion-card-content>\n\n\n\n  <ion-row class="meta">\n\n    <ion-col width-25>\n\n      <button ion-button color="primary" clear small icon-left>\n\n        <ion-icon name=\'thumbs-up\'></ion-icon>\n\n        0\n\n      </button>\n\n    </ion-col>\n\n    <ion-col width-25>\n\n      <button ion-button color="primary" clear small icon-left>\n\n        <ion-icon name=\'text\'></ion-icon>\n\n        0\n\n      </button>\n\n    </ion-col>\n\n    <ion-col class="buttons" width-50 center text-center>\n\n      <span (click)="onClickEdit( post.ID )">Edit</span>\n\n      <span (click)="onClickDelete( post.ID )">Delete</span>\n\n\n\n<button ion-button icon-only (click)="more[post.ID] = ! more[post.ID]">\n\n  <ion-icon name="arrow-down"></ion-icon>\n\n</button>\n\n  <div *ngIf="more[post.ID]">\n\n      <span (click)="onClickReport( post.ID )">Report</span>\n\n      <span (click)="onClickCopy( post.ID )">Copy</span>\n\n      <span (click)="onClickMove( post.ID )">Move</span>\n\n      <span (click)="onClickBlind( post.ID )">Blind</span>\n\n      <span (click)="onClickBlock( post.ID )">Block</span>\n\n      <span (click)="onClickMessage( post.ID )">Message</span>\n\n      <span (click)="onClickListPosts( post.ID )">Posts of the user</span>\n\n    </div>\n\n    \n\n    </ion-col>\n\n  </ion-row>\n\n\n\n</ion-card>\n\n</section>'/*ion-inline-end:"D:\work\New folder\QuestionBuilder\src\xmodule\components\post-list\post-list.html"*/
         }), 
         __metadata$18('design:paramtypes', [Xapi])
     ], PostListComponent);
@@ -85646,7 +85735,7 @@ var PostEditComponent = (function () {
     };
     PostEditComponent = __decorate$127([
         Component({
-            selector: 'xapi-post-edit',template:/*ion-inline-start:"F:\QuestionBuilder\src\xmodule\components\post-edit\post-edit.html"*/'    <ion-card *ngIf="!isCordova" id="photo">\n\n      <div class="wrap">\n\n        <div><img [src]="urlPhoto"></div>\n\n        <input type="file" (change)="onChangeFileBrowser($event)">\n\n        <span>Photo upload</span>\n\n      </div>\n\n    </ion-card>\n\n\n\n    <ion-card *ngIf="isCordova" id="photo" (click)="onClickFileApp()">\n\n      <div class="wrap">\n\n        <div><img [src]="urlPhoto"></div>\n\n        <button primary>CORDOVA UPLOAD</button>\n\n      </div>\n\n    </ion-card>\n\n    \n\n    \n\n    \n\n    <ion-list class="display-uploaded-files">\n\n\n\n      <ion-item class="file" *ngFor=" let id of imageKeys ">\n\n        <img src="{{ images[id] }}" />\n\n        <button ion-button (click)="onDelete( id )">DELETE</button>\n\n      </ion-item>\n\n      \n\n    </ion-list>\n\n      \n\n\n\n\n\n    <ion-list text-wrap>\n\n      <ion-item-divider light>\n\n        <h2>Fill in all Information</h2>\n\n      </ion-item-divider>\n\n      <ion-item>\n\n        <ion-label floating>{{ \'Name\' }}</ion-label>\n\n        <ion-input [(ngModel)]="name"></ion-input>\n\n      </ion-item>\n\n\n\n      <ion-item>\n\n        <ion-label floating>{{ \'Address\' }}</ion-label>\n\n        <ion-input text-wrap [(ngModel)]="address" ></ion-input>\n\n      </ion-item>\n\n\n\n\n\n\n\n      <ion-item>\n\n        <ion-label floating>{{ \'Password\' }}</ion-label>\n\n        <ion-input [(ngModel)]="password" ></ion-input>\n\n      </ion-item>\n\n\n\n      <ion-item>\n\n        <ion-label floating>{{ \'Mobile No.\' }}</ion-label>\n\n        <ion-input [(ngModel)]="mobile" ></ion-input>\n\n      </ion-item>\n\n\n\n      <ion-item>\n\n        <ion-label floating>{{ \'Title\'  }}</ion-label>\n\n        <ion-input [(ngModel)]="post_title"></ion-input>\n\n      </ion-item>\n\n\n\n\n\n      <ion-item>\n\n        <ion-label floating>{{ \'Content\'  }}</ion-label>\n\n        <ion-textarea [(ngModel)]="post_content" [class.focused]=\'isFocused\' (focus)="isFocused=true"></ion-textarea>\n\n      </ion-item>\n\n\n\n      <button  (click)="onClickPost()">POST CREATE SUBMIT</button>\n\n\n\n    </ion-list>'/*ion-inline-end:"F:\QuestionBuilder\src\xmodule\components\post-edit\post-edit.html"*/
+            selector: 'xapi-post-edit',template:/*ion-inline-start:"D:\work\New folder\QuestionBuilder\src\xmodule\components\post-edit\post-edit.html"*/'    <ion-card *ngIf="!isCordova" id="photo">\n\n      <div class="wrap">\n\n        <div><img [src]="urlPhoto"></div>\n\n        <input type="file" (change)="onChangeFileBrowser($event)">\n\n        <span>Photo upload</span>\n\n      </div>\n\n    </ion-card>\n\n\n\n    <ion-card *ngIf="isCordova" id="photo" (click)="onClickFileApp()">\n\n      <div class="wrap">\n\n        <div><img [src]="urlPhoto"></div>\n\n        <button primary>CORDOVA UPLOAD</button>\n\n      </div>\n\n    </ion-card>\n\n    \n\n    \n\n    \n\n    <ion-list class="display-uploaded-files">\n\n\n\n      <ion-item class="file" *ngFor=" let id of imageKeys ">\n\n        <img src="{{ images[id] }}" />\n\n        <button ion-button (click)="onDelete( id )">DELETE</button>\n\n      </ion-item>\n\n      \n\n    </ion-list>\n\n      \n\n\n\n\n\n    <ion-list text-wrap>\n\n      <ion-item-divider light>\n\n        <h2>Fill in all Information</h2>\n\n      </ion-item-divider>\n\n      <ion-item>\n\n        <ion-label floating>{{ \'Name\' }}</ion-label>\n\n        <ion-input [(ngModel)]="name"></ion-input>\n\n      </ion-item>\n\n\n\n      <ion-item>\n\n        <ion-label floating>{{ \'Address\' }}</ion-label>\n\n        <ion-input text-wrap [(ngModel)]="address" ></ion-input>\n\n      </ion-item>\n\n\n\n\n\n\n\n      <ion-item>\n\n        <ion-label floating>{{ \'Password\' }}</ion-label>\n\n        <ion-input [(ngModel)]="password" ></ion-input>\n\n      </ion-item>\n\n\n\n      <ion-item>\n\n        <ion-label floating>{{ \'Mobile No.\' }}</ion-label>\n\n        <ion-input [(ngModel)]="mobile" ></ion-input>\n\n      </ion-item>\n\n\n\n      <ion-item>\n\n        <ion-label floating>{{ \'Title\'  }}</ion-label>\n\n        <ion-input [(ngModel)]="post_title"></ion-input>\n\n      </ion-item>\n\n\n\n\n\n      <ion-item>\n\n        <ion-label floating>{{ \'Content\'  }}</ion-label>\n\n        <ion-textarea [(ngModel)]="post_content" [class.focused]=\'isFocused\' (focus)="isFocused=true"></ion-textarea>\n\n      </ion-item>\n\n\n\n      <button  (click)="onClickPost()">POST CREATE SUBMIT</button>\n\n\n\n    </ion-list>'/*ion-inline-end:"D:\work\New folder\QuestionBuilder\src\xmodule\components\post-edit\post-edit.html"*/
         }), 
         __metadata$19('design:paramtypes', [Platform, Xapi])
     ], PostEditComponent);
@@ -85749,7 +85838,7 @@ var Logout = (function () {
     };
     Logout = __decorate$129([
         Component({
-            selector: 'logout',template:/*ion-inline-start:"F:\QuestionBuilder\src\components\logout\logout.html"*/'<ion-buttons right>\n        <button ion-button color="primary" (click)="onClickLogout()">\n             <ion-icon name="exit" class="logoutIco"></ion-icon>\n        </button>         \n</ion-buttons>'/*ion-inline-end:"F:\QuestionBuilder\src\components\logout\logout.html"*/
+            selector: 'logout',template:/*ion-inline-start:"D:\work\New folder\QuestionBuilder\src\components\logout\logout.html"*/'<ion-buttons right>\n\n        <button ion-button color="primary" (click)="onClickLogout()">\n\n             <ion-icon name="exit" class="logoutIco"></ion-icon>\n\n        </button>         \n\n</ion-buttons>'/*ion-inline-end:"D:\work\New folder\QuestionBuilder\src\components\logout\logout.html"*/
         }), 
         __metadata$21('design:paramtypes', [NavController, ViewController, Events, Xapi, NavParams])
     ], Logout);
@@ -85772,14 +85861,16 @@ var __metadata$22 = (undefined && undefined.__metadata) || function (k, v) {
   for more info on Angular 2 Components.
 */
 var Createupdate = (function () {
-    function Createupdate(platform, x) {
+    function Createupdate(platform, x, navPar) {
         var _this = this;
         this.platform = platform;
         this.x = x;
+        this.navPar = navPar;
         this.isCordova = false;
         this.images = {};
         this.uploader = new FileUploader_1({ url: Config$1.uploadUrl });
         this.result = {};
+        this.frmTitle = navPar.get('title');
         this.platform.ready().then(function () {
             if (_this.platform.is('cordova')) {
                 console.log("Yes, you are on cordova");
@@ -85876,9 +85967,9 @@ var Createupdate = (function () {
     };
     Createupdate = __decorate$130([
         Component({
-            selector: 'createupdate',template:/*ion-inline-start:"F:\QuestionBuilder\src\components\createupdate\createupdate.html"*/'\n    <ion-list text-wrap>\n      <ion-item-divider light>\n        <h2>Fill in all Information</h2>\n      </ion-item-divider>\n      <ion-item>\n        <ion-label floating>{{ \'Name\' }}</ion-label>\n        <ion-input [(ngModel)]="name"></ion-input>\n      </ion-item>\n\n      <ion-item>\n        <ion-label floating>{{ \'Address\' }}</ion-label>\n        <ion-input text-wrap [(ngModel)]="address" ></ion-input>\n      </ion-item>\n\n\n\n      <ion-item>\n        <ion-label floating>{{ \'Password\' }}</ion-label>\n        <ion-input [(ngModel)]="password" ></ion-input>\n      </ion-item>\n\n      <ion-item>\n        <ion-label floating>{{ \'Mobile No.\' }}</ion-label>\n        <ion-input [(ngModel)]="mobile" ></ion-input>\n      </ion-item>\n\n      <ion-item>\n        <ion-label floating>{{ \'Title\'  }}</ion-label>\n        <ion-input [(ngModel)]="post_title"></ion-input>\n      </ion-item>\n\n\n      <ion-item>\n        <ion-label floating>{{ \'Content\'  }}</ion-label>\n        <ion-textarea [(ngModel)]="post_content" [class.focused]=\'isFocused\' (focus)="isFocused=true"></ion-textarea>\n      </ion-item>\n      <ion-item>\n        <button ion-button color="secondary" outline (click)="onClickPost()">POST CREATE SUBMIT</button>\n      </ion-item>\n\n\n    </ion-list>'/*ion-inline-end:"F:\QuestionBuilder\src\components\createupdate\createupdate.html"*/
+            selector: 'createupdate',template:/*ion-inline-start:"D:\work\New folder\QuestionBuilder\src\components\createupdate\createupdate.html"*/'\n\n    <ion-list text-wrap>\n\n      <ion-item-divider light>\n\n        <h2>{{ frmTitle }}</h2>\n\n      </ion-item-divider>\n\n      <ion-item>\n\n        <ion-label floating>{{ \'Name\' }}</ion-label>\n\n        <ion-input [(ngModel)]="name"></ion-input>\n\n      </ion-item>\n\n\n\n      <ion-item>\n\n        <ion-label floating>{{ \'Address\' }}</ion-label>\n\n        <ion-input text-wrap [(ngModel)]="address" ></ion-input>\n\n      </ion-item>\n\n\n\n\n\n\n\n      <ion-item>\n\n        <ion-label floating>{{ \'Password\' }}</ion-label>\n\n        <ion-input [(ngModel)]="password" ></ion-input>\n\n      </ion-item>\n\n\n\n      <ion-item>\n\n        <ion-label floating>{{ \'Mobile No.\' }}</ion-label>\n\n        <ion-input [(ngModel)]="mobile" ></ion-input>\n\n      </ion-item>\n\n\n\n      <ion-item>\n\n        <ion-label floating>{{ \'Title\'  }}</ion-label>\n\n        <ion-input [(ngModel)]="post_title"></ion-input>\n\n      </ion-item>\n\n\n\n\n\n      <ion-item>\n\n        <ion-label floating>{{ \'Content\'  }}</ion-label>\n\n        <ion-textarea [(ngModel)]="post_content" [class.focused]=\'isFocused\' (focus)="isFocused=true"></ion-textarea>\n\n      </ion-item>\n\n      <ion-item>\n\n        <button ion-button color="secondary" outline (click)="onClickPost()">POST CREATE SUBMIT</button>\n\n      </ion-item>\n\n\n\n\n\n    </ion-list>'/*ion-inline-end:"D:\work\New folder\QuestionBuilder\src\components\createupdate\createupdate.html"*/
         }), 
-        __metadata$22('design:paramtypes', [Platform, Xapi])
+        __metadata$22('design:paramtypes', [Platform, Xapi, NavParams])
     ], Createupdate);
     return Createupdate;
 }());
@@ -85907,7 +85998,7 @@ var AppModule = (function () {
                 List$1,
                 CreateUpdateForm,
                 Createupdate,
-                Delete
+                Delete,
             ],
             imports: [
                 XModule,
@@ -85924,7 +86015,7 @@ var AppModule = (function () {
                 List$1,
                 CreateUpdateForm,
                 Createupdate,
-                Delete
+                Delete,
             ],
             providers: []
         }), 

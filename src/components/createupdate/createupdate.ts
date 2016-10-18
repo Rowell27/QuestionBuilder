@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Platform } from 'ionic-angular';
+import { NavParams } from 'ionic-angular';
 import { Xapi } from '../../xmodule/providers/xapi';
 import * as xi from '../../xmodule/interfaces/xapi';
 import { FileUploader } from 'ng2-file-upload/components/file-upload/file-uploader.class';
@@ -23,13 +24,16 @@ export class Createupdate {isCordova = false;
     post_content;
     
     images = {};
+
+    frmTitle:string
     
     
     
     private uploader = new FileUploader({ url: Config.uploadUrl });
     private result:xi.FileUploadResponse = <xi.FileUploadResponse> {};
 
-    constructor( private platform: Platform, private x: Xapi ) {
+    constructor( private platform: Platform, private x: Xapi, private navPar: NavParams ) {
+        this.frmTitle = navPar.get('title');
         this.platform.ready().then( () => {
             if ( this.platform.is('cordova') ) {
                 console.log("Yes, you are on cordova");

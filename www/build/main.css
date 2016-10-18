@@ -21106,7 +21106,22 @@ sub {
   }
 }
 
-question-list ion-card {
+question-list #post-list .images .image {
+  display: inline-block;
+  width: 33.33%;
+  height: 4em;
+  overflow: hidden;
+}
+
+question-list #post-list .images .image img {
+  width: 100%;
+}
+
+question-list #post-list .meta .buttons span {
+  display: block;
+  float: left;
+  padding: .3em .5em;
+  background-color: #89abcd;
   cursor: pointer;
 }
 
@@ -21150,6 +21165,10 @@ page-questionsform .btnIcon {
   background-color: transparent;
 }
 
+page-questionsform question-list {
+  cursor: pointer;
+}
+
 #photo {
   background-color: blue;
 }
@@ -21188,4 +21207,23 @@ page-questionsform .btnIcon {
   bottom: 0;
   border-radius: 0;
   width: 100%;
+}
+
+#post-list .images .image {
+  display: inline-block;
+  width: 33.33%;
+  height: 4em;
+  overflow: hidden;
+}
+
+#post-list .images .image img {
+  width: 100%;
+}
+
+#post-list .meta .buttons span {
+  display: block;
+  float: left;
+  padding: .3em .5em;
+  background-color: #89abcd;
+  cursor: pointer;
 }

@@ -29,6 +29,8 @@ export class Questionsform {
     console.log("PostListPage::ionViewDidLoad()", this.postListComponent.slug);
   }
   addIco(){
-    this.navCtrl.push(CreateUpdateForm);   
+    this.navCtrl.push(CreateUpdateForm,{
+      title: 'Create New Question'
+    });   
   }
 }

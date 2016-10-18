@@ -68,6 +68,8 @@ export class List {
     }
     thread(){
         console.log('ok');
-        this.navCtrl.push(CreateUpdateForm);
+        this.navCtrl.push(CreateUpdateForm,{
+            title:'Edit Question'
+        });
     }
 }
