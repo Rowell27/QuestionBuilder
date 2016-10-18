@@ -1,8 +1,6 @@
 import { Component } from '@angular/core';
 import { LoginPage } from '../login/login';
 import { RegisterPage } from '../register/register';
-import { PostListPage } from '../post-list/post-list';
-import { PostEditPage } from '../post-edit/post-edit';
 import { Questionsform } from '../questionsform/questionsform';
 import { NavController, Events, ViewController } from 'ionic-angular';
 import { NavParams } from 'ionic-angular';
@@ -58,20 +56,20 @@ export class Dashboard {
     this.user = '';
     this.navCtrl.setRoot(LoginPage);
   }
-  onClickLogout() {
-        // this.x.logout();
-        this.x.alert("Log out", "Logging out");
-        this.logout();
-  }
+  // onClickLogout() {
+  //       // this.x.logout();
+  //       this.x.alert("Log out", "Logging out");
+  //       this.logout();
+  // }
   onClickUpdate() {
-    console.log(this.user.user_login);
+    console.log(this.user.display_name);
     //this.navCtrl.push( RegisterPage );
   }
   onClickChangePassword() {
     //this.navCtrl.push( PasswordPage );
   }
   onClickAdd(){
-    console.log('Add');
-    this.navCtrl.push(PostListPage);
+    this.navCtrl.push( Questionsform );
+    
   } 
 }

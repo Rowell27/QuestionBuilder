@@ -83684,7 +83684,6 @@ var __decorate$110 = (undefined && undefined.__decorate) || function (decorators
 var __metadata$3 = (undefined && undefined.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-//import * as x from '../all';
 var LoginComponent = (function () {
     function LoginComponent(api) {
         var _this = this;
@@ -84021,12 +84020,37 @@ var RegisterPage = (function () {
         __metadata$6('design:type', RegisterComponent)
     ], RegisterPage.prototype, "register", void 0);
     RegisterPage = __decorate$114([
-        Component({template:/*ion-inline-start:"C:\Users\Samsung\Desktop\project\QuestionBuilder\src\pages\register\register.html"*/'<ion-header>\n\n  \n\n  <ion-navbar>\n\n    <ion-title>User Register</ion-title>\n\n  </ion-navbar>\n\n\n\n</ion-header>\n\n<ion-content padding>\n\n  <xapi-register #Register\n\n      (beforeRequest)="onBeforeRequest($event)"\n\n      (afterRequest)="onAfterRequest($event)"\n\n      (success)="onSuccess($event)"\n\n      (update)="onUpdate($event)"\n\n      (cancel)="onCancel($event)"\n\n      (error)="onError($event)"\n\n    ></xapi-register>\n\n    <div *ngIf="loading">\n\n      <ion-spinner></ion-spinner>\n\n    </div>\n\n    <div *ngIf="errorMessage">\n\n      {{ errorMessage }}\n\n    </div>\n\n</ion-content>\n\n'/*ion-inline-end:"C:\Users\Samsung\Desktop\project\QuestionBuilder\src\pages\register\register.html"*/,
+        Component({template:/*ion-inline-start:"F:\QuestionBuilder\src\pages\register\register.html"*/'<ion-header>\n\n  \n\n  <ion-navbar>\n\n    <ion-title>User Register</ion-title>\n\n  </ion-navbar>\n\n\n\n</ion-header>\n\n<ion-content padding>\n\n  <xapi-register #Register\n\n      (beforeRequest)="onBeforeRequest($event)"\n\n      (afterRequest)="onAfterRequest($event)"\n\n      (success)="onSuccess($event)"\n\n      (update)="onUpdate($event)"\n\n      (cancel)="onCancel($event)"\n\n      (error)="onError($event)"\n\n    ></xapi-register>\n\n    <div *ngIf="loading">\n\n      <ion-spinner></ion-spinner>\n\n    </div>\n\n    <div *ngIf="errorMessage">\n\n      {{ errorMessage }}\n\n    </div>\n\n</ion-content>\n\n'/*ion-inline-end:"F:\QuestionBuilder\src\pages\register\register.html"*/,
             providers: [Xapi]
         }), 
         __metadata$6('design:paramtypes', [NavController, Xapi])
     ], RegisterPage);
     return RegisterPage;
+}());
+
+var __decorate$118 = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata$10 = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+var CreateUpdateForm = (function () {
+    function CreateUpdateForm(navCtrl) {
+        this.navCtrl = navCtrl;
+    }
+    CreateUpdateForm.prototype.ionViewDidLoad = function () {
+        console.log('Hello Form Page');
+    };
+    CreateUpdateForm = __decorate$118([
+        Component({
+            selector: 'page-form',template:/*ion-inline-start:"F:\QuestionBuilder\src\pages\form\form.html"*/'<!--\n\n  Generated template for the PostEdit page.\n\n\n\n  See http://ionicframework.com/docs/v2/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n<ion-header>\n\n\n\n  <ion-navbar>\n\n    <logout></logout>\n\n  </ion-navbar>\n\n\n\n</ion-header>\n\n\n\n\n\n<ion-content padding>\n\n  <createupdate>\n\n\n\n  </createupdate>\n\n</ion-content>\n\n'/*ion-inline-end:"F:\QuestionBuilder\src\pages\form\form.html"*/
+        }), 
+        __metadata$10('design:paramtypes', [NavController])
+    ], CreateUpdateForm);
+    return CreateUpdateForm;
 }());
 
 var __decorate$117 = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
@@ -84038,18 +84062,19 @@ var __decorate$117 = (undefined && undefined.__decorate) || function (decorators
 var __metadata$9 = (undefined && undefined.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var PostListComponent = (function () {
-    function PostListComponent(x) {
+var List$1 = (function () {
+    function List$$1(x, navCtrl) {
         this.x = x;
+        this.navCtrl = navCtrl;
         this.posts = [];
         this.page = 0;
         console.log('PostListComponent::constructor()', this.slug);
     }
-    PostListComponent.prototype.ngOnInit = function () {
+    List$$1.prototype.ngOnInit = function () {
         console.log('PostListComponent::ngOnInit()', this.slug);
         this.loadMorePosts(function (re) { return console.log(re); }, function () { });
     };
-    PostListComponent.prototype.loadMorePosts = function (successCallback, errorCallback) {
+    List$$1.prototype.loadMorePosts = function (successCallback, errorCallback) {
         var _this = this;
         this.page++;
         console.log('loadMorePosts()');
@@ -84079,32 +84104,35 @@ var PostListComponent = (function () {
         }, function (e) {
         });
     };
-    PostListComponent.prototype.displayPosts = function (posts) {
+    List$$1.prototype.displayPosts = function (posts) {
         console.log('displayPosts()', posts);
         for (var _i = 0, posts_1 = posts; _i < posts_1.length; _i++) {
             var post = posts_1[_i];
             this.posts.push(post);
         }
     };
-    PostListComponent.prototype.doInfinite = function (callback) {
+    List$$1.prototype.doInfinite = function (callback) {
         console.log('PostListComponent::doInfinite() begin');
         this.loadMorePosts(function (re) {
             console.log('doInfinite() end');
             callback(re);
         }, function () { });
     };
+    List$$1.prototype.thread = function () {
+        console.log('ok');
+        this.navCtrl.push(CreateUpdateForm);
+    };
     __decorate$117([
         Input(), 
         __metadata$9('design:type', String)
-    ], PostListComponent.prototype, "slug", void 0);
-    PostListComponent = __decorate$117([
+    ], List$$1.prototype, "slug", void 0);
+    List$$1 = __decorate$117([
         Component({
-            selector: 'xapi-post-list',
-            template: "\n    <h2>Post List : {{ slug }}</h2>\n    \n\n\n<ion-card *ngFor=\" let post of posts \">\n\n  <ion-item>\n    <h2>{{ post.post_title }}</h2>\n  </ion-item>\n\n\n  <ion-card-content>\n    {{ post.ID }}\n    <p>{{ post.post_content }}</p>\n  </ion-card-content>\n\n  <ion-row>\n    \n  </ion-row>\n\n</ion-card>\n    \n\n    "
+            selector: 'question-list',template:/*ion-inline-start:"F:\QuestionBuilder\src\components\list\list.html"*/'<h2>List:</h2>\n\n<ion-card *ngFor=" let post of posts " (click)="thread()">\n\n\n\n<ion-item>\n\n    <h2>{{ post.post_title }}</h2>\n\n</ion-item>\n\n\n\n\n\n<ion-card-content>\n\n    {{ post.ID }}\n\n    <p>{{ post.post_content }}</p>\n\n</ion-card-content>\n\n\n\n</ion-card>'/*ion-inline-end:"F:\QuestionBuilder\src\components\list\list.html"*/
         }), 
-        __metadata$9('design:paramtypes', [Xapi])
-    ], PostListComponent);
-    return PostListComponent;
+        __metadata$9('design:paramtypes', [Xapi, NavController])
+    ], List$$1);
+    return List$$1;
 }());
 
 var __decorate$116 = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
@@ -84116,46 +84144,42 @@ var __decorate$116 = (undefined && undefined.__decorate) || function (decorators
 var __metadata$8 = (undefined && undefined.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var PostListPage = (function () {
-    function PostListPage(navCtrl, navParams) {
+/*
+  Generated class for the Questionsform page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+*/
+var Questionsform = (function () {
+    function Questionsform(navCtrl, navParams) {
         this.navCtrl = navCtrl;
         this.navParams = navParams;
         console.log('PostListPage::constructor()', navParams.data);
         this.slug = this.navParams.get('slug');
     }
-    PostListPage.prototype.ionViewDidLoad = function () {
+    Questionsform.prototype.ionViewDidLoad = function () {
         console.log("PostListPage::ionViewDidLoad()", this.postListComponent.slug);
-    };
-    PostListPage.prototype.doInfinite = function (infiniteScroll) {
-        console.log("PostListPage::doInfinite() begin");
-        this.postListComponent.doInfinite(function (more) {
-            console.log("PostListPage::doInfinite() end");
-            infiniteScroll.complete();
-            if (!more) {
-                infiniteScroll.enable(false);
-            }
-        });
     };
     __decorate$116([
         ViewChild('xapiPostList'), 
-        __metadata$8('design:type', PostListComponent)
-    ], PostListPage.prototype, "postListComponent", void 0);
-    PostListPage = __decorate$116([
+        __metadata$8('design:type', List$1)
+    ], Questionsform.prototype, "postListComponent", void 0);
+    Questionsform = __decorate$116([
         Component({
-            selector: 'page-post-list',template:/*ion-inline-start:"C:\Users\Samsung\Desktop\project\QuestionBuilder\src\pages\post-list\post-list.html"*/'<ion-header>\n\n  <ion-header>\n\n    <xapi-header #Header [appTitle]="appTitle"></xapi-header>\n\n  </ion-header>\n\n</ion-header>\n\n\n\n\n\n<ion-content padding>\n\n  <xapi-post-list\n\n    #xapiPostList\n\n    [slug]="slug"\n\n    (view)="onClickView( $event )"\n\n    (vote)="onClicVote( $event )"\n\n  ></xapi-post-list>\n\n  \n\n  <ion-infinite-scroll (ionInfinite)="doInfinite($event)">\n\n    <ion-infinite-scroll-content></ion-infinite-scroll-content>\n\n  </ion-infinite-scroll>\n\n  \n\n</ion-content>\n\n'/*ion-inline-end:"C:\Users\Samsung\Desktop\project\QuestionBuilder\src\pages\post-list\post-list.html"*/
+            selector: 'page-questionsform',template:/*ion-inline-start:"F:\QuestionBuilder\src\pages\questionsform\questionsform.html"*/'<!--\n\n  Generated template for the Questionsform page.\n\n\n\n  See http://ionicframework.com/docs/v2/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n<ion-header>\n\n\n\n  <ion-navbar>\n\n    <logout></logout>\n\n  </ion-navbar>\n\n\n\n</ion-header>\n\n\n\n\n\n<ion-content padding>\n\n  <ion-buttons right>\n\n    <ion-icon name="add-circle" class="addIcon"></ion-icon>\n\n  </ion-buttons>\n\n  \n\n  <question-list\n\n    #xapiPostList\n\n    [slug]="slug"\n\n    (view)="onClickView( $event )"\n\n    (vote)="onClicVote( $event )"\n\n  ></question-list>\n\n\n\n</ion-content>\n\n'/*ion-inline-end:"F:\QuestionBuilder\src\pages\questionsform\questionsform.html"*/
         }), 
         __metadata$8('design:paramtypes', [NavController, NavParams])
-    ], PostListPage);
-    return PostListPage;
+    ], Questionsform);
+    return Questionsform;
 }());
 
-var __decorate$118 = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+var __decorate$119 = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
-var __metadata$10 = (undefined && undefined.__metadata) || function (k, v) {
+var __metadata$11 = (undefined && undefined.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var PageController = (function () {
@@ -84165,9 +84189,9 @@ var PageController = (function () {
         container.navCtrl.push(PageController.page[page]);
     };
     PageController.page = {};
-    PageController = __decorate$118([
+    PageController = __decorate$119([
         Injectable(), 
-        __metadata$10('design:paramtypes', [])
+        __metadata$11('design:paramtypes', [])
     ], PageController);
     return PageController;
 }());
@@ -84221,25 +84245,24 @@ var Dashboard = (function () {
         this.user = '';
         this.navCtrl.setRoot(LoginPage);
     };
-    Dashboard.prototype.onClickLogout = function () {
-        // this.x.logout();
-        this.x.alert("Log out", "Logging out");
-        this.logout();
-    };
+    // onClickLogout() {
+    //       // this.x.logout();
+    //       this.x.alert("Log out", "Logging out");
+    //       this.logout();
+    // }
     Dashboard.prototype.onClickUpdate = function () {
-        console.log(this.user.user_login);
+        console.log(this.user.display_name);
         //this.navCtrl.push( RegisterPage );
     };
     Dashboard.prototype.onClickChangePassword = function () {
         //this.navCtrl.push( PasswordPage );
     };
     Dashboard.prototype.onClickAdd = function () {
-        console.log('Add');
-        this.navCtrl.push(PostListPage);
+        this.navCtrl.push(Questionsform);
     };
     Dashboard = __decorate$113([
         Component({
-            selector: 'page-dashboard',template:/*ion-inline-start:"C:\Users\Samsung\Desktop\project\QuestionBuilder\src\pages\dashboard\dashboard.html"*/'<ion-header>\n  <ion-navbar hideBackButton>\n    <ion-title *ngIf="user">Welcome {{ user.user_nicename }}</ion-title>\n     <ion-buttons right>\n                <button ion-button color="primary" (click)="onClickLogout()">\n                  <ion-icon name="exit" class="logoutIco"></ion-icon>\n                </button>\n                \n      </ion-buttons>\n  </ion-navbar>\n</ion-header>\n<ion-content padding>\n\n  <section *ngIf="user">\n    <p class="container">\n      \n    </p>\n    <p class="container">\n      \n    </p>\n  </section>\n\n<ion-grid>\n  \n  <ion-list>\n    <ion-item>\n      <ion-label>Quiz Management</ion-label>\n    </ion-item>\n    \n    <ion-item>\n      <ion-row>\n        <ion-col width-45> \n          <ion-card class="btnCard" (click)="onClickAdd()">\n            <p class="cardTitle"><ion-icon name="document"></ion-icon>\n              Add/Edit Question\n            </p>\n          </ion-card>\n        </ion-col>\n\n        <ion-col width-45>\n          <ion-card class="btnCard" (click)="onClickDelete()">\n            <p class="cardTitle">\n              <ion-icon name="trash"></ion-icon>\n                Remove Question\n            </p>\n          </ion-card>\n        </ion-col>\n       </ion-row>\n    </ion-item>\n\n\n    <ion-item>\n      <ion-label>Account Settings</ion-label>\n    </ion-item>\n\n        \n    <ion-item>\n      <ion-row>\n        <ion-col width-45> \n          <ion-card class="btnCard" (click)="onClickAdd()">\n            <p class="cardTitle"><ion-icon name="lock"></ion-icon>\n              Change Password\n            </p>\n          </ion-card>\n        </ion-col>\n\n       </ion-row>\n    </ion-item>\n    \n  </ion-list>\n</ion-grid>\n</ion-content>\n'/*ion-inline-end:"C:\Users\Samsung\Desktop\project\QuestionBuilder\src\pages\dashboard\dashboard.html"*/
+            selector: 'page-dashboard',template:/*ion-inline-start:"F:\QuestionBuilder\src\pages\dashboard\dashboard.html"*/'<ion-header>\n\n  <ion-navbar hideBackButton>\n\n    \n\n    <logout>\n\n    </logout>\n\n  </ion-navbar>\n\n</ion-header>\n\n<ion-content padding>\n\n  <h2 *ngIf="user">Welcome {{ user.user_nicename }}</h2>\n\n  <section *ngIf="user">\n\n    <p class="container">\n\n      \n\n    </p>\n\n    <p class="container">\n\n      \n\n    </p>\n\n  </section>\n\n\n\n<ion-grid>\n\n  \n\n  <ion-list>\n\n    <ion-item>\n\n      <ion-label>Quiz Management</ion-label>\n\n    </ion-item>\n\n    \n\n    <ion-item>\n\n      <ion-row>\n\n        <ion-col width-45> \n\n          <ion-card class="btnCard" (click)="onClickAdd()">\n\n            <p class="cardTitle"><ion-icon name="document"></ion-icon>\n\n              Add/Edit Question\n\n            </p>\n\n          </ion-card>\n\n        </ion-col>\n\n\n\n        <ion-col width-45>\n\n          <ion-card class="btnCard" (click)="onClickDelete()">\n\n            <p class="cardTitle">\n\n              <ion-icon name="trash"></ion-icon>\n\n                Remove Question\n\n            </p>\n\n          </ion-card>\n\n        </ion-col>\n\n       </ion-row>\n\n    </ion-item>\n\n\n\n\n\n    <ion-item>\n\n      <ion-label>Account Settings</ion-label>\n\n    </ion-item>\n\n\n\n        \n\n    <ion-item>\n\n      <ion-row>\n\n        <ion-col width-45> \n\n          <ion-card class="btnCard" (click)="onClickAdd()">\n\n            <p class="cardTitle"><ion-icon name="lock"></ion-icon>\n\n              Change Password\n\n            </p>\n\n          </ion-card>\n\n        </ion-col>\n\n\n\n       </ion-row>\n\n    </ion-item>\n\n    \n\n  </ion-list>\n\n</ion-grid>\n\n</ion-content>\n\n'/*ion-inline-end:"F:\QuestionBuilder\src\pages\dashboard\dashboard.html"*/
         }), 
         __metadata$5('design:paramtypes', [NavController, ViewController, Events, Xapi, NavParams])
     ], Dashboard);
@@ -84292,7 +84315,7 @@ var LoginPage = (function () {
     ], LoginPage.prototype, "userLog", void 0);
     LoginPage = __decorate$109([
         Component({
-            selector: 'page-login',template:/*ion-inline-start:"C:\Users\Samsung\Desktop\project\QuestionBuilder\src\pages\login\login.html"*/'<ion-header>\n\n  \n\n  <ion-navbar hideBackButton>\n\n    <ion-title>User Login</ion-title>\n\n  </ion-navbar>\n\n\n\n</ion-header>\n\n\n\n<ion-content padding>\n\n  <xapi-login #Login\n\n      (beforeRequest)="onBeforeRequest($event)"\n\n      (afterRequest)="onAfterRequest($event)"\n\n      (success)="onSuccess($event)"\n\n      (cancel)="onCancel($event)"\n\n      (error)="onError($event)"\n\n  ></xapi-login>\n\n</ion-content>\n\n'/*ion-inline-end:"C:\Users\Samsung\Desktop\project\QuestionBuilder\src\pages\login\login.html"*/
+            selector: 'page-login',template:/*ion-inline-start:"F:\QuestionBuilder\src\pages\login\login.html"*/'<ion-header>\n\n  \n\n  <ion-navbar hideBackButton>\n\n    <ion-title>User Login</ion-title>\n\n  </ion-navbar>\n\n\n\n</ion-header>\n\n\n\n<ion-content padding>\n\n  <xapi-login #Login\n\n      (beforeRequest)="onBeforeRequest($event)"\n\n      (afterRequest)="onAfterRequest($event)"\n\n      (success)="onSuccess($event)"\n\n      (cancel)="onCancel($event)"\n\n      (error)="onError($event)"\n\n  ></xapi-login>\n\n</ion-content>\n\n'/*ion-inline-end:"F:\QuestionBuilder\src\pages\login\login.html"*/
         }), 
         __metadata$2('design:paramtypes', [NavController, Xapi, ViewController])
     ], LoginPage);
@@ -84332,31 +84355,6 @@ var MyApp = (function () {
         __metadata$1('design:paramtypes', [Platform])
     ], MyApp);
     return MyApp;
-}());
-
-var __decorate$119 = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata$11 = (undefined && undefined.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-var PostEditPage = (function () {
-    function PostEditPage(navCtrl) {
-        this.navCtrl = navCtrl;
-    }
-    PostEditPage.prototype.ionViewDidLoad = function () {
-        console.log('Hello PostEdit Page');
-    };
-    PostEditPage = __decorate$119([
-        Component({
-            selector: 'page-post-edit',template:/*ion-inline-start:"C:\Users\Samsung\Desktop\project\QuestionBuilder\src\pages\post-edit\post-edit.html"*/'<!--\n\n  Generated template for the PostEdit page.\n\n\n\n  See http://ionicframework.com/docs/v2/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n<ion-header>\n\n\n\n  <ion-navbar>\n\n    <ion-title>post-edit</ion-title>\n\n  </ion-navbar>\n\n\n\n</ion-header>\n\n\n\n\n\n<ion-content padding>\n\n  <xapi-post-edit></xapi-post-edit>\n\n</ion-content>\n\n'/*ion-inline-end:"C:\Users\Samsung\Desktop\project\QuestionBuilder\src\pages\post-edit\post-edit.html"*/
-        }), 
-        __metadata$11('design:paramtypes', [NavController])
-    ], PostEditPage);
-    return PostEditPage;
 }());
 
 var __decorate$121 = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
@@ -84676,6 +84674,84 @@ var ForumCategoryComponent = (function () {
         __metadata$16('design:paramtypes', [Xapi])
     ], ForumCategoryComponent);
     return ForumCategoryComponent;
+}());
+
+var __decorate$125 = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata$17 = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+var PostListComponent = (function () {
+    function PostListComponent(x) {
+        this.x = x;
+        this.posts = [];
+        this.page = 0;
+        console.log('PostListComponent::constructor()', this.slug);
+    }
+    PostListComponent.prototype.ngOnInit = function () {
+        console.log('PostListComponent::ngOnInit()', this.slug);
+        this.loadMorePosts(function (re) { return console.log(re); }, function () { });
+    };
+    PostListComponent.prototype.loadMorePosts = function (successCallback, errorCallback) {
+        var _this = this;
+        this.page++;
+        console.log('loadMorePosts()');
+        var arg = postQuery;
+        arg.category_name = this.slug;
+        arg.paged = this.page;
+        arg.per_page = 50;
+        this.x.get_posts(arg, function (res) {
+            // console.log( 'loadMorePosts()', res);
+            if (res.success) {
+                if (res.data && res.data.length) {
+                    _this.displayPosts(res.data);
+                    successCallback(true);
+                }
+                else {
+                    console.log('No more posts');
+                    successCallback(false);
+                }
+            }
+            else {
+                if (res.data)
+                    alert(res.data);
+                else
+                    alert("Error on post list");
+                errorCallback();
+            }
+        }, function (e) {
+        });
+    };
+    PostListComponent.prototype.displayPosts = function (posts) {
+        console.log('displayPosts()', posts);
+        for (var _i = 0, posts_1 = posts; _i < posts_1.length; _i++) {
+            var post = posts_1[_i];
+            this.posts.push(post);
+        }
+    };
+    PostListComponent.prototype.doInfinite = function (callback) {
+        console.log('PostListComponent::doInfinite() begin');
+        this.loadMorePosts(function (re) {
+            console.log('doInfinite() end');
+            callback(re);
+        }, function () { });
+    };
+    __decorate$125([
+        Input(), 
+        __metadata$17('design:type', String)
+    ], PostListComponent.prototype, "slug", void 0);
+    PostListComponent = __decorate$125([
+        Component({
+            selector: 'xapi-post-list',
+            template: "\n    <h2>Post List : {{ slug }}</h2>\n    \n\n\n<ion-card *ngFor=\" let post of posts \">\n\n  <ion-item>\n    <ion-avatar item-left>\n      <img src=\"assets/tmp/marty-avatar.png\">\n    </ion-avatar>\n    <h2>{{ post.post_title }}</h2>\n    <p>{{ post.post_date }}</p>\n  </ion-item>\n\n  <img src=\"assets/tmp/advance-card-bttf.png\">\n\n  <ion-card-content>\n    {{ post.ID }}\n    <p>{{ post.post_content }}</p>\n  </ion-card-content>\n\n  <ion-row>\n    <ion-col>\n      <button ion-button color=\"primary\" clear small icon-left>\n        <ion-icon name='thumbs-up'></ion-icon>\n        0 Likes\n      </button>\n    </ion-col>\n    <ion-col>\n      <button ion-button color=\"primary\" clear small icon-left>\n        <ion-icon name='text'></ion-icon>\n        0 Comments\n      </button>\n    </ion-col>\n    <ion-col center text-center>\n      <ion-note>\n        11h ago\n      </ion-note>\n    </ion-col>\n  </ion-row>\n\n</ion-card>\n    \n\n    "
+        }), 
+        __metadata$17('design:paramtypes', [Xapi])
+    ], PostListComponent);
+    return PostListComponent;
 }());
 
 function isElement(node) {
@@ -85399,13 +85475,13 @@ var FileUploader = (function () {
 }());
 var FileUploader_1 = FileUploader;
 
-var __decorate$126 = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+var __decorate$127 = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
-var __metadata$18 = (undefined && undefined.__metadata) || function (k, v) {
+var __metadata$19 = (undefined && undefined.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var Config$1 = (function () {
@@ -85413,20 +85489,20 @@ var Config$1 = (function () {
     }
     Config.serverUrl = "http://work.org/wordpress/index.php";
     Config.uploadUrl = Config.serverUrl + "?xapi=file.upload&type=any";
-    Config = __decorate$126([
+    Config = __decorate$127([
         Injectable(), 
-        __metadata$18('design:paramtypes', [])
+        __metadata$19('design:paramtypes', [])
     ], Config);
     return Config;
 }());
 
-var __decorate$125 = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+var __decorate$126 = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
-var __metadata$17 = (undefined && undefined.__metadata) || function (k, v) {
+var __metadata$18 = (undefined && undefined.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var PostEditComponent = (function () {
@@ -85533,11 +85609,11 @@ var PostEditComponent = (function () {
     PostEditComponent.prototype.onDelete = function (id) {
         console.log('delete: ' + id);
     };
-    PostEditComponent = __decorate$125([
+    PostEditComponent = __decorate$126([
         Component({
-            selector: 'xapi-post-edit',template:/*ion-inline-start:"C:\Users\Samsung\Desktop\project\QuestionBuilder\src\xmodule\components\post-edit\post-edit.html"*/'\n\n    <ion-list text-wrap>\n\n      <ion-item-divider light>\n\n        <h2>Fill in all Information</h2>\n\n      </ion-item-divider>\n\n      <ion-item>\n\n        <ion-label floating>{{ \'Name\' }}</ion-label>\n\n        <ion-input [(ngModel)]="name"></ion-input>\n\n      </ion-item>\n\n\n\n      <ion-item>\n\n        <ion-label floating>{{ \'Address\' }}</ion-label>\n\n        <ion-input text-wrap [(ngModel)]="address" ></ion-input>\n\n      </ion-item>\n\n\n\n      <ion-item>\n\n        <ion-label floating>{{ \'Password\' }}</ion-label>\n\n        <ion-input [(ngModel)]="password" ></ion-input>\n\n      </ion-item>\n\n\n\n      <ion-item>\n\n        <ion-label floating>{{ \'Mobile No.\' }}</ion-label>\n\n        <ion-input [(ngModel)]="mobile" ></ion-input>\n\n      </ion-item>\n\n\n\n      <ion-item>\n\n        <ion-label floating>{{ \'Title\'  }}</ion-label>\n\n        <ion-input [(ngModel)]="post_title"></ion-input>\n\n      </ion-item>\n\n\n\n      <ion-item>\n\n        <ion-label floating>{{ \'Content\'  }}</ion-label>\n\n        <ion-textarea [(ngModel)]="post_content" [class.focused]=\'isFocused\' (focus)="isFocused=true"></ion-textarea>\n\n      </ion-item>\n\n\n\n      <button ion-button (click)="onClickPost()">POST CREATE SUBMIT</button>\n\n\n\n    </ion-list>'/*ion-inline-end:"C:\Users\Samsung\Desktop\project\QuestionBuilder\src\xmodule\components\post-edit\post-edit.html"*/
+            selector: 'xapi-post-edit',template:/*ion-inline-start:"F:\QuestionBuilder\src\xmodule\components\post-edit\post-edit.html"*/'    <ion-card *ngIf="!isCordova" id="photo">\n\n      <div class="wrap">\n\n        <div><img [src]="urlPhoto"></div>\n\n        <input type="file" (change)="onChangeFileBrowser($event)">\n\n        <span>Photo upload</span>\n\n      </div>\n\n    </ion-card>\n\n\n\n    <ion-card *ngIf="isCordova" id="photo" (click)="onClickFileApp()">\n\n      <div class="wrap">\n\n        <div><img [src]="urlPhoto"></div>\n\n        <button primary>CORDOVA UPLOAD</button>\n\n      </div>\n\n    </ion-card>\n\n    \n\n    \n\n    \n\n    <ion-list class="display-uploaded-files">\n\n\n\n      <ion-item class="file" *ngFor=" let id of imageKeys ">\n\n        <img src="{{ images[id] }}" />\n\n        <button ion-button (click)="onDelete( id )">DELETE</button>\n\n      </ion-item>\n\n      \n\n    </ion-list>\n\n      \n\n\n\n\n\n    <ion-list text-wrap>\n\n      <ion-item-divider light>\n\n        <h2>Fill in all Information</h2>\n\n      </ion-item-divider>\n\n      <ion-item>\n\n        <ion-label floating>{{ \'Name\' }}</ion-label>\n\n        <ion-input [(ngModel)]="name"></ion-input>\n\n      </ion-item>\n\n\n\n      <ion-item>\n\n        <ion-label floating>{{ \'Address\' }}</ion-label>\n\n        <ion-input text-wrap [(ngModel)]="address" ></ion-input>\n\n      </ion-item>\n\n\n\n\n\n\n\n      <ion-item>\n\n        <ion-label floating>{{ \'Password\' }}</ion-label>\n\n        <ion-input [(ngModel)]="password" ></ion-input>\n\n      </ion-item>\n\n\n\n      <ion-item>\n\n        <ion-label floating>{{ \'Mobile No.\' }}</ion-label>\n\n        <ion-input [(ngModel)]="mobile" ></ion-input>\n\n      </ion-item>\n\n\n\n      <ion-item>\n\n        <ion-label floating>{{ \'Title\'  }}</ion-label>\n\n        <ion-input [(ngModel)]="post_title"></ion-input>\n\n      </ion-item>\n\n\n\n\n\n      <ion-item>\n\n        <ion-label floating>{{ \'Content\'  }}</ion-label>\n\n        <ion-textarea [(ngModel)]="post_content" [class.focused]=\'isFocused\' (focus)="isFocused=true"></ion-textarea>\n\n      </ion-item>\n\n\n\n      <button  (click)="onClickPost()">POST CREATE SUBMIT</button>\n\n\n\n    </ion-list>'/*ion-inline-end:"F:\QuestionBuilder\src\xmodule\components\post-edit\post-edit.html"*/
         }), 
-        __metadata$17('design:paramtypes', [Platform, Xapi])
+        __metadata$18('design:paramtypes', [Platform, Xapi])
     ], PostEditComponent);
     return PostEditComponent;
 }());
@@ -85593,58 +85669,183 @@ var XModule = (function () {
     return XModule;
 }());
 
-var __decorate$127 = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+var __decorate$128 = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
-var __metadata$19 = (undefined && undefined.__metadata) || function (k, v) {
+var __metadata$20 = (undefined && undefined.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 /*
-  Generated class for the Questionsform page.
+  Generated class for the Logout component.
 
-  See http://ionicframework.com/docs/v2/components/#navigation for more info on
-  Ionic pages and navigation.
+  See https://angular.io/docs/ts/latest/api/core/index/ComponentMetadata-class.html
+  for more info on Angular 2 Components.
 */
-var Questionsform = (function () {
-    function Questionsform(navCtrl, navParams) {
+var Logout = (function () {
+    function Logout(navCtrl, viewCtrl, events, x, navPar) {
+        var _this = this;
         this.navCtrl = navCtrl;
-        this.navParams = navParams;
-        console.log('PostListPage::constructor()', navParams.data);
-        this.slug = this.navParams.get('slug');
+        this.viewCtrl = viewCtrl;
+        this.events = events;
+        this.x = x;
+        this.navPar = navPar;
+        this.userLogged = this.navPar.get('thisstring');
+        this.events.subscribe('logout', function () {
+            console.log('HomePage::constructor::event logout');
+            _this.logout();
+        });
+        this.events.subscribe('resign', function () {
+            console.log('HomePage::constructor::event resign');
+            _this.logout();
+        });
+        PageController.page.login = LoginPage;
     }
-    Questionsform.prototype.ionViewDidLoad = function () {
-        console.log("PostListPage::ionViewDidLoad()", this.postListComponent.slug);
+    Logout.prototype.logout = function () {
+        this.user = '';
+        this.navCtrl.setRoot(LoginPage);
     };
-    /**
-     * 부모 컴포넌트에서만 ion-infinite-scroll 을 사용 할 수 있으므로
-     * 부모 컴포넌트에서 자식 컴포넌트의 endless loading 로직을 호출 한 후,
-     * complete() 을 호출 한다.
-     * 더 이상 데이터가 없으면, enable(false) 를 호출 한다.
-     */
-    Questionsform.prototype.doInfinite = function (infiniteScroll) {
-        console.log("PostListPage::doInfinite() begin");
-        this.postListComponent.doInfinite(function (more) {
-            console.log("PostListPage::doInfinite() end");
-            infiniteScroll.complete();
-            if (!more) {
-                infiniteScroll.enable(false);
+    Logout.prototype.onClickLogout = function () {
+        // this.x.logout();
+        this.x.alert("Log out", "Logging out");
+        this.logout();
+    };
+    Logout = __decorate$128([
+        Component({
+            selector: 'logout',template:/*ion-inline-start:"F:\QuestionBuilder\src\components\logout\logout.html"*/'<ion-buttons right>\n        <button ion-button color="primary" (click)="onClickLogout()">\n             <ion-icon name="exit" class="logoutIco"></ion-icon>\n        </button>         \n</ion-buttons>'/*ion-inline-end:"F:\QuestionBuilder\src\components\logout\logout.html"*/
+        }), 
+        __metadata$20('design:paramtypes', [NavController, ViewController, Events, Xapi, NavParams])
+    ], Logout);
+    return Logout;
+}());
+
+var __decorate$129 = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata$21 = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+/*
+  Generated class for the Createupdate component.
+
+  See https://angular.io/docs/ts/latest/api/core/index/ComponentMetadata-class.html
+  for more info on Angular 2 Components.
+*/
+var Createupdate = (function () {
+    function Createupdate(platform, x) {
+        var _this = this;
+        this.platform = platform;
+        this.x = x;
+        this.isCordova = false;
+        this.images = {};
+        this.uploader = new FileUploader_1({ url: Config$1.uploadUrl });
+        this.result = {};
+        this.platform.ready().then(function () {
+            if (_this.platform.is('cordova')) {
+                console.log("Yes, you are on cordova");
+                _this.isCordova = true;
+            }
+            else {
+                console.log("No, you are NOT on cordova");
+                _this.initBrowserUpload();
             }
         });
+    }
+    Object.defineProperty(Createupdate.prototype, "imageKeys", {
+        get: function () {
+            return Object.keys(this.images);
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Createupdate.prototype.initBrowserUpload = function () {
+        var _this = this;
+        console.log("initBrowserUpload()");
+        this.uploader.onSuccessItem = function (item, response, status, headers) {
+            _this.result = {
+                "success": true,
+                "item": item,
+                "response": response,
+                "status": status,
+                "headers": headers
+            };
+            console.log('onSuccessItem : ', _this.result);
+        };
+        this.uploader.onErrorItem = function (item, response, status, headers) {
+            _this.result = {
+                "success": false,
+                "item": item,
+                "response": response,
+                "status": status,
+                "headers": headers
+            };
+            console.log('onErrorItem : ', _this.result);
+        };
+        this.uploader.onCompleteAll = function () {
+            _this.onBrowserUploadComplete();
+        };
+        this.uploader.onAfterAddingFile = function (fileItem) {
+            console.log('onAfterAddingFile: ', fileItem);
+            fileItem.withCredentials = false; // remove credentials
+            fileItem.upload(); // upload file.
+        };
     };
-    __decorate$127([
-        ViewChild('xapiPostList'), 
-        __metadata$19('design:type', PostListComponent)
-    ], Questionsform.prototype, "postListComponent", void 0);
-    Questionsform = __decorate$127([
+    Createupdate.prototype.onChangeFileBrowser = function ($event) {
+        console.log("onChangeFileBrowser()");
+        try {
+            this.uploader.addToQueue($event.target.files);
+        }
+        catch (e) {
+            this.x.error("Failed to addToQueue() onBrowserUpload()");
+        }
+        finally {
+        }
+    };
+    Createupdate.prototype.onBrowserUploadComplete = function () {
+        var response = this.result.response;
+        if (response) {
+            // try {
+            //   re = JSON.parse( response );
+            // }
+            // catch ( e ) {
+            //   return this.x.error( "Failed on JSON.parse() try in onBrowserUploadComplete(). Please show this message to admin.", e);
+            // }
+            var re = this.x.json(response);
+            if (re.success)
+                this.onSuccessFileUpload(re.data);
+            else
+                return this.x.error(re.data);
+        }
+        else
+            return this.errorMaybeServerError();
+    };
+    /**
+     * @note this method is called on file upload success.
+     *
+     * @todo let mobile upload to call this method.
+     */
+    Createupdate.prototype.onSuccessFileUpload = function (file) {
+        this.images[file.id] = file.url;
+        //this.post.file_id = file.id;
+    };
+    Createupdate.prototype.errorMaybeServerError = function () {
+        return this.x.error("Please check if file server is alive and check if the photo size is too big.");
+    };
+    Createupdate.prototype.onDelete = function (id) {
+        console.log('delete: ' + id);
+    };
+    Createupdate = __decorate$129([
         Component({
-            selector: 'page-questionsform',template:/*ion-inline-start:"C:\Users\Samsung\Desktop\project\QuestionBuilder\src\pages\questionsform\questionsform.html"*/'<!--\n  Generated template for the Questionsform page.\n\n  See http://ionicframework.com/docs/v2/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>questionsform</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n\n  <xapi-post-list\n    #xapiPostList\n    [slug]="slug"\n    (view)="onClickView( $event )"\n    (vote)="onClicVote( $event )"\n  ></xapi-post-list>\n  \n  <ion-infinite-scroll (ionInfinite)="doInfinite($event)">\n    <ion-infinite-scroll-content></ion-infinite-scroll-content>\n  </ion-infinite-scroll>\n\n</ion-content>\n'/*ion-inline-end:"C:\Users\Samsung\Desktop\project\QuestionBuilder\src\pages\questionsform\questionsform.html"*/
+            selector: 'createupdate',template:/*ion-inline-start:"F:\QuestionBuilder\src\components\createupdate\createupdate.html"*/'\n    <ion-list text-wrap>\n      <ion-item-divider light>\n        <h2>Fill in all Information</h2>\n      </ion-item-divider>\n      <ion-item>\n        <ion-label floating>{{ \'Name\' }}</ion-label>\n        <ion-input [(ngModel)]="name"></ion-input>\n      </ion-item>\n\n      <ion-item>\n        <ion-label floating>{{ \'Address\' }}</ion-label>\n        <ion-input text-wrap [(ngModel)]="address" ></ion-input>\n      </ion-item>\n\n\n\n      <ion-item>\n        <ion-label floating>{{ \'Password\' }}</ion-label>\n        <ion-input [(ngModel)]="password" ></ion-input>\n      </ion-item>\n\n      <ion-item>\n        <ion-label floating>{{ \'Mobile No.\' }}</ion-label>\n        <ion-input [(ngModel)]="mobile" ></ion-input>\n      </ion-item>\n\n      <ion-item>\n        <ion-label floating>{{ \'Title\'  }}</ion-label>\n        <ion-input [(ngModel)]="post_title"></ion-input>\n      </ion-item>\n\n\n      <ion-item>\n        <ion-label floating>{{ \'Content\'  }}</ion-label>\n        <ion-textarea [(ngModel)]="post_content" [class.focused]=\'isFocused\' (focus)="isFocused=true"></ion-textarea>\n      </ion-item>\n      <ion-item>\n        <button ion-button color="secondary" outline (click)="onClickPost()">POST CREATE SUBMIT</button>\n      </ion-item>\n\n\n    </ion-list>'/*ion-inline-end:"F:\QuestionBuilder\src\components\createupdate\createupdate.html"*/
         }), 
-        __metadata$19('design:paramtypes', [NavController, NavParams])
-    ], Questionsform);
-    return Questionsform;
+        __metadata$21('design:paramtypes', [Platform, Xapi])
+    ], Createupdate);
+    return Createupdate;
 }());
 
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
@@ -85667,8 +85868,10 @@ var AppModule = (function () {
                 RegisterPage,
                 Dashboard,
                 Questionsform,
-                PostListPage,
-                PostEditPage
+                Logout,
+                List$1,
+                CreateUpdateForm,
+                Createupdate
             ],
             imports: [
                 XModule,
@@ -85681,8 +85884,10 @@ var AppModule = (function () {
                 RegisterPage,
                 Dashboard,
                 Questionsform,
-                PostListPage,
-                PostEditPage
+                Logout,
+                List$1,
+                CreateUpdateForm,
+                Createupdate
             ],
             providers: []
         }), 

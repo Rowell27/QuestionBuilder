@@ -1,16 +1,12 @@
 <ion-header>
   <ion-navbar hideBackButton>
-    <ion-title *ngIf="user">Welcome {{ user.user_nicename }}</ion-title>
-     <ion-buttons right>
-                <button ion-button color="primary" (click)="onClickLogout()">
-                  <ion-icon name="exit" class="logoutIco"></ion-icon>
-                </button>
-                
-      </ion-buttons>
+    
+    <logout>
+    </logout>
   </ion-navbar>
 </ion-header>
 <ion-content padding>
-
+  <h2 *ngIf="user">Welcome {{ user.user_nicename }}</h2>
   <section *ngIf="user">
     <p class="container">
       

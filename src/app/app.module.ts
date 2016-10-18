@@ -4,10 +4,13 @@ import { MyApp } from './app.component';
 import { LoginPage } from '../pages/login/login';
 import { RegisterPage } from '../pages/register/register';
 import { Dashboard } from '../pages/dashboard/dashboard';
-import { PostListPage } from '../pages/post-list/post-list';
-import { PostEditPage } from '../pages/post-edit/post-edit';
 import { XModule } from '../xmodule/modules/core';
+import { Logout } from '../components/logout/logout';
+import { Createupdate } from '../components/createupdate/createupdate';
+import { List } from '../components/list/list'
 import { Questionsform } from '../pages/questionsform/questionsform';
+import { CreateUpdateForm } from '../pages/form/form';
+
 @NgModule({
   declarations: [
     MyApp,
@@ -15,8 +18,10 @@ import { Questionsform } from '../pages/questionsform/questionsform';
     RegisterPage,
     Dashboard,
     Questionsform,
-    PostListPage,
-    PostEditPage
+    Logout,
+    List,
+    CreateUpdateForm,
+    Createupdate
   ],
   imports: [
     XModule,
@@ -29,8 +34,10 @@ import { Questionsform } from '../pages/questionsform/questionsform';
     RegisterPage,
     Dashboard,
     Questionsform,
-    PostListPage,
-    PostEditPage
+    Logout,
+    List,
+    CreateUpdateForm,
+    Createupdate
     
   ],
   providers: [ ]

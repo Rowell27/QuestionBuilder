@@ -9,6 +9,7 @@ export let userLogin: UserLogin = { user_login: '', user_pass: '' };
 export interface UserLoginData {
     code?: string,
     session_id?: string,
+    display_name?:string,
     user_login?: string,
     user_nicename?: string
 }
@@ -26,6 +27,7 @@ export interface RegisterResponse {
 }
 
 export interface UserData {
+    
     ID: number,
     session_id: number,
     user_login: string,

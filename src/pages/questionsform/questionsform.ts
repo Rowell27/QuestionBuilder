@@ -1,6 +1,6 @@
 import { Component, ViewChild } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
-import { PostListComponent } from '../../xmodule/components/post-list';
+import { List } from '../../components/list/list';
 
 /*
   Generated class for the Questionsform page.
@@ -13,7 +13,7 @@ import { PostListComponent } from '../../xmodule/components/post-list';
   templateUrl: 'questionsform.html'
 })
 export class Questionsform {
-  @ViewChild('xapiPostList') postListComponent: PostListComponent;
+  @ViewChild('xapiPostList') postListComponent: List;
   slug: string;
   constructor(
     public navCtrl: NavController,
@@ -28,5 +28,5 @@ export class Questionsform {
     console.log("PostListPage::ionViewDidLoad()", this.postListComponent.slug);
   }
 
-  
+
 }

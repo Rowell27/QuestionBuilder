@@ -21106,6 +21106,14 @@ sub {
   }
 }
 
+question-list ion-card {
+  cursor: pointer;
+}
+
+logout .logoutIco {
+  font-size: 1.5em;
+}
+
 page-dashboard ion-card {
   position: relative;
   text-align: center;
@@ -21127,6 +21135,14 @@ page-dashboard .btnCard {
 
 page-dashboard .logoutIco {
   font-size: 1.5em;
+}
+
+page-questionsform ion-icon {
+  font-size: 2em;
+}
+
+page-questionsform .addIcon {
+  color: darkcyan;
 }
 
 #photo {

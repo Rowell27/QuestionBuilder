@@ -1,7 +1,6 @@
 import { Component, Output, EventEmitter } from '@angular/core';
 import { Xapi } from '../providers/xapi';
 import * as xi from '../interfaces/xapi';
-//import * as x from '../all';
 @Component({
   selector: 'xapi-login',
   template: `

@@ -7,19 +7,22 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>questionsform</ion-title>
+    <logout></logout>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
-
-  <xapi-post-list
+  <ion-buttons right>
+    <ion-icon name="add-circle" class="addIcon"></ion-icon>
+  </ion-buttons>
+  
+  <question-list
     #xapiPostList
     [slug]="slug"
     (view)="onClickView( $event )"
     (vote)="onClicVote( $event )"
-  ></xapi-post-list>
+  ></question-list>
 
 </ion-content>

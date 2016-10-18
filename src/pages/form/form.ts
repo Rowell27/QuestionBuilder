@@ -4,7 +4,7 @@ import { NavController } from 'ionic-angular';
   selector: 'page-form',
   templateUrl: 'form.html'
 })
-export class PostEditPage {
+export class CreateUpdateForm {
 
   constructor(public navCtrl: NavController) {}
 
