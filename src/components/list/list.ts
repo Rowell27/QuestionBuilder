@@ -12,16 +12,14 @@ export class List {
     @Input() slug: string;
     posts: xi.Posts = [];
     page: number = 0;
-    constructor(
-        private x: Xapi,
-        private navCtrl: NavController
-    ) {
+    constructor(private x: Xapi,private navCtrl: NavController) {
         console.log('PostListComponent::constructor()', this.slug);
     }
     ngOnInit() {
         console.log('PostListComponent::ngOnInit()', this.slug);
         this.loadMorePosts( re => console.log(re), ()=>{} );
     }
+    
     loadMorePosts( successCallback, errorCallback ) {
         this.page ++;
         console.log('loadMorePosts()');
@@ -65,6 +63,9 @@ export class List {
             callback(re);
         },
         () => {} );
+    }
+    clickList(ID){
+        console.log(ID);
     }
     thread(){
         console.log('ok');

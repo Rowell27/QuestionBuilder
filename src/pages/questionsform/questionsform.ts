@@ -2,6 +2,7 @@ import { Component, ViewChild } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { List } from '../../components/list/list';
 import { CreateUpdateForm } from '../form/form';
+import * as xi from '../../xmodule/interfaces/xapi';
 
 /*
   Generated class for the Questionsform page.
@@ -14,6 +15,7 @@ import { CreateUpdateForm } from '../form/form';
   templateUrl: 'questionsform.html'
 })
 export class Questionsform {
+  posts: xi.Posts = [];
   @ViewChild('xapiPostList') postListComponent: List;
   slug: string;
   constructor(
