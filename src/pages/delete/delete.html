@@ -17,8 +17,24 @@
 
 <ion-content padding>
 
-  <question-list>
+<ion-list>
+    <ion-item *ngFor=" let post of posts" >  
+        <ion-card >
+
+        <ion-item>
+            <h2>{{ post.post_title }}</h2>
+        </ion-item>
+
+
+        <ion-card-content>
     
-  </question-list>
+            {{ post.ID }}
+            <p>{{ post.post_content }}</p>
+        </ion-card-content>
+
+        </ion-card>     
+    </ion-item>
+</ion-list>
+
 
 </ion-content>

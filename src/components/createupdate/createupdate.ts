@@ -18,14 +18,12 @@ import { Config } from '../../xmodule/providers/config'
 export class Createupdate {isCordova = false;
     name;
     address;
-    password;
-    mobile;
-    post_title;
-    post_content;
+    quesiton_title;
+    question_content;
     
     images = {};
 
-    frmTitle:string
+    frmTitle:string;
     
     
     

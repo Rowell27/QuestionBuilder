@@ -31,28 +31,28 @@ export class Dashboard {
   onClickChange(){
     console.log('Change Password');
     let prompt = this.alertCtrl.create({
-      title: 'Login',
+      title: 'Change Password',
       message: "Enter a name for this new album you're so keen on adding",
       inputs: [
         {
-          name: 'title',
-          placeholder: 'Title'
+          name: 'Current',
+          placeholder: 'Your current password'
         },{
-          name: 'title',
-          placeholder: 'Title'
+          name: 'New',
+          placeholder: 'Your new password'
         }
       ],
       buttons: [
         {
           text: 'Cancel',
           handler: data => {
-            console.log('Cancel clicked');
+            console.log();
           }
         },
         {
           text: 'Save',
           handler: data => {
-            console.log('Saved clicked');
+            console.log(data.Current, data.New);
           }
         }
       ]

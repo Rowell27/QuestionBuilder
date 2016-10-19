@@ -84193,24 +84193,153 @@ var __decorate$119 = (undefined && undefined.__decorate) || function (decorators
 var __metadata$11 = (undefined && undefined.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-/*
-  Generated class for the Delete page.
-
-  See http://ionicframework.com/docs/v2/components/#navigation for more info on
-  Ionic pages and navigation.
-*/
 var Delete = (function () {
-    function Delete(navCtrl) {
-        this.navCtrl = navCtrl;
+    function Delete(x) {
+        this.x = x;
+        this.more = [];
+        this.posts = [];
+        this.page = 0;
+        this.featuredImage = "x-assets/img/sunset.jpg";
+        this.edit = new EventEmitter();
+        this.delete = new EventEmitter();
+        this.report = new EventEmitter();
+        this.copy = new EventEmitter();
+        this.move = new EventEmitter();
+        this.blind = new EventEmitter();
+        this.block = new EventEmitter();
+        this.message = new EventEmitter();
+        this.userPosts = new EventEmitter();
+        console.log('PostListComponent::constructor()', this.slug);
     }
-    Delete.prototype.ionViewDidLoad = function () {
-        console.log('Hello Delete Page');
+    Delete.prototype.ngOnInit = function () {
+        console.log('PostListComponent::ngOnInit()', this.slug);
+        this.loadMorePosts(function (re) { return console.log(re); }, function () { });
     };
+    Delete.prototype.loadMorePosts = function (successCallback, errorCallback) {
+        var _this = this;
+        this.page++;
+        console.log('loadMorePosts()');
+        var arg = postQuery;
+        arg.category_name = this.slug;
+        arg.paged = this.page;
+        arg.per_page = 50;
+        this.x.get_posts(arg, function (res) {
+            // console.log( 'loadMorePosts()', res);
+            if (res.success) {
+                if (res.data && res.data.length) {
+                    _this.displayPosts(res.data);
+                    successCallback(true);
+                }
+                else {
+                    console.log('No more posts');
+                    successCallback(false);
+                }
+            }
+            else {
+                if (res.data)
+                    alert(res.data);
+                else
+                    alert("Error on post list");
+                errorCallback();
+            }
+        }, function (e) {
+        });
+    };
+    Delete.prototype.displayPosts = function (posts) {
+        //console.log('displayPosts()', posts);
+        for (var _i = 0, posts_1 = posts; _i < posts_1.length; _i++) {
+            var post = posts_1[_i];
+            this.posts.push(post);
+        }
+    };
+    Delete.prototype.doInfinite = function (callback) {
+        console.log('PostListComponent::doInfinite() begin');
+        this.loadMorePosts(function (re) {
+            console.log('doInfinite() end');
+            callback(re);
+        }, function () { });
+    };
+    Delete.prototype.onClickEdit = function (post_ID) {
+        console.log('onClickEdit()', post_ID);
+        this.edit.emit(post_ID);
+    };
+    Delete.prototype.onClickDelete = function (post_ID) {
+        console.log('onClickDel()', post_ID);
+        this.delete.emit(post_ID);
+    };
+    Delete.prototype.onClickReport = function (post_ID) {
+        console.log('onClickReport()', post_ID);
+        this.report.emit(post_ID);
+    };
+    Delete.prototype.onClickCopy = function (post_ID) {
+        console.log('onClickCopy()', post_ID);
+        this.copy.emit(post_ID);
+    };
+    Delete.prototype.onClickMove = function (post_ID) {
+        console.log('onClickMove()', post_ID);
+        this.move.emit(post_ID);
+    };
+    Delete.prototype.onClickBlind = function (post_ID) {
+        console.log('onClickBlind()', post_ID);
+        this.blind.emit(post_ID);
+    };
+    Delete.prototype.onClickMessage = function (post_ID) {
+        console.log('onClickMessage()', post_ID);
+        this.message.emit(post_ID);
+    };
+    Delete.prototype.onClickPosts = function (post_ID) {
+        console.log('onClickPosts()', post_ID);
+        this.userPosts.emit(post_ID);
+    };
+    Delete.prototype.onClickBlock = function (post_ID) {
+        console.log('onClickBlock()', post_ID);
+        this.block.emit(post_ID);
+    };
+    __decorate$119([
+        Input(), 
+        __metadata$11('design:type', String)
+    ], Delete.prototype, "slug", void 0);
+    __decorate$119([
+        Output(), 
+        __metadata$11('design:type', Object)
+    ], Delete.prototype, "edit", void 0);
+    __decorate$119([
+        Output(), 
+        __metadata$11('design:type', Object)
+    ], Delete.prototype, "delete", void 0);
+    __decorate$119([
+        Output(), 
+        __metadata$11('design:type', Object)
+    ], Delete.prototype, "report", void 0);
+    __decorate$119([
+        Output(), 
+        __metadata$11('design:type', Object)
+    ], Delete.prototype, "copy", void 0);
+    __decorate$119([
+        Output(), 
+        __metadata$11('design:type', Object)
+    ], Delete.prototype, "move", void 0);
+    __decorate$119([
+        Output(), 
+        __metadata$11('design:type', Object)
+    ], Delete.prototype, "blind", void 0);
+    __decorate$119([
+        Output(), 
+        __metadata$11('design:type', Object)
+    ], Delete.prototype, "block", void 0);
+    __decorate$119([
+        Output(), 
+        __metadata$11('design:type', Object)
+    ], Delete.prototype, "message", void 0);
+    __decorate$119([
+        Output(), 
+        __metadata$11('design:type', Object)
+    ], Delete.prototype, "userPosts", void 0);
     Delete = __decorate$119([
         Component({
-            selector: 'page-delete',template:/*ion-inline-start:"C:\Users\Samsung\Desktop\project\QuestionBuilder\src\pages\delete\delete.html"*/'<!--\n\n  Generated template for the Delete page.\n\n\n\n  See http://ionicframework.com/docs/v2/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n<ion-header>\n\n\n\n  <ion-navbar>\n\n    <logout>\n\n\n\n    </logout>\n\n  </ion-navbar>\n\n\n\n</ion-header>\n\n\n\n\n\n<ion-content padding>\n\n\n\n  <question-list>\n\n    \n\n  </question-list>\n\n\n\n</ion-content>\n\n'/*ion-inline-end:"C:\Users\Samsung\Desktop\project\QuestionBuilder\src\pages\delete\delete.html"*/
+            selector: 'delete-page',template:/*ion-inline-start:"C:\Users\Samsung\Desktop\project\QuestionBuilder\src\pages\delete\delete.html"*/'<!--\n\n  Generated template for the Delete page.\n\n\n\n  See http://ionicframework.com/docs/v2/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n<ion-header>\n\n\n\n  <ion-navbar>\n\n    <logout>\n\n\n\n    </logout>\n\n  </ion-navbar>\n\n\n\n</ion-header>\n\n\n\n\n\n<ion-content padding>\n\n\n\n<ion-list>\n\n    <ion-item *ngFor=" let post of posts" >  \n\n        <ion-card >\n\n\n\n        <ion-item>\n\n            <h2>{{ post.post_title }}</h2>\n\n        </ion-item>\n\n\n\n\n\n        <ion-card-content>\n\n    \n\n            {{ post.ID }}\n\n            <p>{{ post.post_content }}</p>\n\n        </ion-card-content>\n\n\n\n        </ion-card>     \n\n    </ion-item>\n\n</ion-list>\n\n\n\n\n\n</ion-content>\n\n'/*ion-inline-end:"C:\Users\Samsung\Desktop\project\QuestionBuilder\src\pages\delete\delete.html"*/
         }), 
-        __metadata$11('design:paramtypes', [NavController])
+        __metadata$11('design:paramtypes', [Xapi])
     ], Delete);
     return Delete;
 }());
@@ -84265,28 +84394,28 @@ var Dashboard = (function () {
     Dashboard.prototype.onClickChange = function () {
         console.log('Change Password');
         var prompt = this.alertCtrl.create({
-            title: 'Login',
+            title: 'Change Password',
             message: "Enter a name for this new album you're so keen on adding",
             inputs: [
                 {
-                    name: 'title',
-                    placeholder: 'Title'
+                    name: 'Current',
+                    placeholder: 'Your current password'
                 }, {
-                    name: 'title',
-                    placeholder: 'Title'
+                    name: 'New',
+                    placeholder: 'Your new password'
                 }
             ],
             buttons: [
                 {
                     text: 'Cancel',
                     handler: function (data) {
-                        console.log('Cancel clicked');
+                        console.log();
                     }
                 },
                 {
                     text: 'Save',
                     handler: function (data) {
-                        console.log('Saved clicked');
+                        console.log(data.Current, data.New);
                     }
                 }
             ]
@@ -85971,7 +86100,7 @@ var Createupdate = (function () {
     };
     Createupdate = __decorate$130([
         Component({
-            selector: 'createupdate',template:/*ion-inline-start:"C:\Users\Samsung\Desktop\project\QuestionBuilder\src\components\createupdate\createupdate.html"*/'\n\n    <ion-list text-wrap>\n\n      <ion-item-divider light>\n\n        <h2>{{ frmTitle }}</h2>\n\n      </ion-item-divider>\n\n      <ion-item>\n\n        <ion-label floating>{{ \'Name\' }}</ion-label>\n\n        <ion-input [(ngModel)]="name"></ion-input>\n\n      </ion-item>\n\n\n\n      <ion-item>\n\n        <ion-label floating>{{ \'Address\' }}</ion-label>\n\n        <ion-input text-wrap [(ngModel)]="address" ></ion-input>\n\n      </ion-item>\n\n\n\n\n\n\n\n      <ion-item>\n\n        <ion-label floating>{{ \'Password\' }}</ion-label>\n\n        <ion-input [(ngModel)]="password" ></ion-input>\n\n      </ion-item>\n\n\n\n      <ion-item>\n\n        <ion-label floating>{{ \'Mobile No.\' }}</ion-label>\n\n        <ion-input [(ngModel)]="mobile" ></ion-input>\n\n      </ion-item>\n\n\n\n      <ion-item>\n\n        <ion-label floating>{{ \'Title\'  }}</ion-label>\n\n        <ion-input [(ngModel)]="post_title"></ion-input>\n\n      </ion-item>\n\n\n\n\n\n      <ion-item>\n\n        <ion-label floating>{{ \'Content\'  }}</ion-label>\n\n        <ion-textarea [(ngModel)]="post_content" [class.focused]=\'isFocused\' (focus)="isFocused=true"></ion-textarea>\n\n      </ion-item>\n\n      <ion-item>\n\n        <button ion-button color="secondary" outline (click)="onClickPost()">POST CREATE SUBMIT</button>\n\n      </ion-item>\n\n\n\n\n\n    </ion-list>'/*ion-inline-end:"C:\Users\Samsung\Desktop\project\QuestionBuilder\src\components\createupdate\createupdate.html"*/
+            selector: 'createupdate',template:/*ion-inline-start:"C:\Users\Samsung\Desktop\project\QuestionBuilder\src\components\createupdate\createupdate.html"*/'\n\n    <ion-list text-wrap>\n\n      <ion-item-divider light>\n\n        <h2>{{ frmTitle }}</h2>\n\n      </ion-item-divider>\n\n      <ion-item>\n\n        <ion-label floating>{{ \'Title\' }}</ion-label>\n\n        <ion-input [(ngModel)]="name"></ion-input>\n\n      </ion-item>\n\n\n\n      <ion-item>\n\n        <ion-label floating>{{ \'Address\' }}</ion-label>\n\n        <ion-input text-wrap [(ngModel)]="address" ></ion-input>\n\n      </ion-item>\n\n\n\n\n\n\n\n      <ion-item>\n\n        <ion-label floating>{{ \'Password\' }}</ion-label>\n\n        <ion-input [(ngModel)]="password" ></ion-input>\n\n      </ion-item>\n\n\n\n      <ion-item>\n\n        <ion-label floating>{{ \'Mobile No.\' }}</ion-label>\n\n        <ion-input [(ngModel)]="mobile" ></ion-input>\n\n      </ion-item>\n\n\n\n      <ion-item>\n\n        <ion-label floating>{{ \'Title\'  }}</ion-label>\n\n        <ion-input [(ngModel)]="post_title"></ion-input>\n\n      </ion-item>\n\n\n\n\n\n      <ion-item>\n\n        <ion-label floating>{{ \'Content\'  }}</ion-label>\n\n        <ion-textarea [(ngModel)]="post_content" [class.focused]=\'isFocused\' (focus)="isFocused=true"></ion-textarea>\n\n      </ion-item>\n\n      <ion-item>\n\n        <button ion-button color="secondary" outline (click)="onClickPost()">POST CREATE SUBMIT</button>\n\n      </ion-item>\n\n\n\n\n\n    </ion-list>'/*ion-inline-end:"C:\Users\Samsung\Desktop\project\QuestionBuilder\src\components\createupdate\createupdate.html"*/
         }), 
         __metadata$22('design:paramtypes', [Platform, Xapi, NavParams])
     ], Createupdate);
